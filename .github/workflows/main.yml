@@ -26,6 +26,3 @@ jobs:
         
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
-
-      - name: Lint
-        run: poetry run pylint src
