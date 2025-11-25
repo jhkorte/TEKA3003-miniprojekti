@@ -4,8 +4,8 @@ def main():
     repo = ViiteRepository()
 
     while True:
-        print("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa \nMahdolliset komennot: \n New: Lisaa uusi viite \n")
-        response = input("laita quit \n").strip().lower()  
+        print("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa \nMahdolliset komennot: \n New: Lisaa uusi viite \n Quit: Tallenna ja päätä ohjelman käyttö \n")
+        response = input("Anna komento \n").strip().lower()  
         print(response + "\n")
         if response == "quit":
             break
