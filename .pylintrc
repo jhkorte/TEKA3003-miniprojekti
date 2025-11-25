@@ -352,7 +352,7 @@ indent-string='    '
 # Maximum number of characters on a single line. Pylint's default of 100 is
 # based on PEP 8's guidance that teams may choose line lengths up to 99
 # characters.
-max-line-length=100
+max-line-length=150
 
 # Maximum number of lines in a module.
 max-module-lines=1000
@@ -650,7 +650,7 @@ dummy-variables-rgx=_+$|(_[a-zA-Z0-9_]*[a-zA-Z0-9]+?$)|dummy|^ignored_|^unused_
 ignored-argument-names=_.*|^ignored_|^unused_
 
 # Tells whether we should check for unused import in __init__ files.
-init-import=no
+init-import=True
 
 # List of qualified module names which can have objects that can redefine
 # builtins.
