@@ -10,7 +10,7 @@ def main():
         if response == "quit":
             break
 
-        if response == "New":
+        if response == "new":
             repo.luoViite()
 
 if __name__ == "__main__":
