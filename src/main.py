@@ -1,6 +1,8 @@
 def main():
     while True:
-        response = input("quit lopettaa suorituksen\n")
+        print("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa \nMahdolliset komennot: \n New: Lisaa uusi viite \n")
+        response = input("laita quit \n")
+        print(response + "\n")
         if response == "quit":
             break
 
