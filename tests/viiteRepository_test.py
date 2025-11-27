@@ -1,26 +1,27 @@
-import pytest
-from viiteRepository import ViiteRepository
-from viite import Viite
-from unittest.mock import patch
+import unittest
+from src.viiteRepository import ViiteRepository
+from src.viite import Viite
+from unittest.mock import Mock
 
-def test_luoViiteInproceedings():
-    testi_viite = Viite()
-    testi_viite.viitteet = []
+def test_luoViiteInproceedings(monkeypatch):
+    repo = ViiteRepository()
+    repo.viitteet = []
 
-    syotteet = [
+    mock_input = Mock(side_effect=[
         "avain",
         "Jon",
         "otsikko",
         "2025",
-        "otsikko"
-    ]
+        "kirjaotsikko"
+    ])
 
-    with patch("builtins.input", side_effect=syotteet):
-        testi_viite.luoViiteInproceeedings()
+    monkeypatch.setattr("builtins.input", mock_input)
 
-    assert len(testi_viite.viitteet) == 1
+    repo.luoViiteInproceedings()
+    
+    assert len(repo.viitteet) == 1
 
-    viite = testi_viite.viitteet[0]
+    viite = repo.viitteet[0]
     assert isinstance(viite, Viite)
     assert viite.key == "avain"
     assert viite.author == "Jon"

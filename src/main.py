@@ -1,4 +1,4 @@
-from viiteRepository import ViiteRepository
+from .viiteRepository import ViiteRepository
 
 def main():
     repo = ViiteRepository()
