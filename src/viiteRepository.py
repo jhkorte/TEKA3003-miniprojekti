@@ -1,4 +1,6 @@
 from viite import Viite
+from pathlib import Path
+
 
 class ViiteRepository:
     def __init__(self):
@@ -38,6 +40,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
+        self.tallennaViitteetTiedostoon(uusi_viite)
 
 
     def luoViiteArticle(self):
@@ -52,6 +55,7 @@ class ViiteRepository:
         print("Luotu:"); 
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
+        self.tallennaViitteetTiedostoon(uusi_viite)
 
 
 
@@ -65,6 +69,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
+        self.tallennaViitteetTiedostoon(uusi_viite)
 
 
     def tulostaViitteetListasta(self):
@@ -76,4 +81,9 @@ class ViiteRepository:
         for viite in self.viitteet:
             print(viite)
 
-    # def tallennaViitteetTiedostoon(self):
+    def tallennaViitteetTiedostoon(self, reference):
+        with open("references.txt", "a") as f:
+            f.write(reference.__str__())
+            f.write("\n")
+            f.write("\n")
+
