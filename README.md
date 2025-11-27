@@ -8,6 +8,19 @@ Backlog: https://jyu-my.sharepoint.com/:x:/g/personal/jhkortww_jyu_fi/EaBAMkVj-M
 
 ---------------------------------------
 
+# Ohjelman asennus ja suorittaminen
+
+Siirry hakemistoon, johon olet kloonannut projektin. Suorita sitten seuraavat komennot.
+
+```bash
+poetry install
+poetry shell
+python src/main.py
+
+```
+
+---------------------------------------
+
 # Definition of done
 Sovellus toimii komentorivikäyttöliittymässä
 - Kaikki käyttäjän kannalta tarpeelliset komennot ja ominaisuudet on toteutettu ja ne toimivat.
