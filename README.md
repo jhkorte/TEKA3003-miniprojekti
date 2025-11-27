@@ -4,7 +4,7 @@ Ryhmä 8 repositorio
 [![CI](https://github.com/jhkorte/TEKA3003-miniprojekti/actions/workflows/main.yml/badge.svg)](https://github.com/jhkorte/TEKA3003-miniprojekti/actions)
 [![CI](https://codecov.io/github/jhkorte/TEKA3003-miniprojekti/badge.svg)](https://app.codecov.io/github/jhkorte/TEKA3003-miniprojekti)
 
-Backlog: https://jyu-my.sharepoint.com/:x:/g/personal/jhkortww_jyu_fi/EaBAMkVj-MRMu468sCmiTtgBthz1bZm2LLCxn55WsWJ2Kg?e=lhiNUf
+[Project Backlog](https://jyu-my.sharepoint.com/:x:/g/personal/jhkortww_jyu_fi/EaBAMkVj-MRMu468sCmiTtgBthz1bZm2LLCxn55WsWJ2Kg?e=lhiNUf)
 
 ---------------------------------------
 
