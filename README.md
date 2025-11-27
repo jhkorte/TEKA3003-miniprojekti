@@ -24,5 +24,6 @@ python src/main.py
 # Definition of done
 Sovellus toimii komentorivikäyttöliittymässä
 - Kaikki käyttäjän kannalta tarpeelliset komennot ja ominaisuudet on toteutettu ja ne toimivat.
-- Automatisoidut testit
-- Koodi on selkeää ja hyvin kommentoitua
+- Testikattavuus on kohtuullisella tasolla.
+- Automatisoidut testit.
+- Koodi on selkeää ja hyvin kommentoitua.
