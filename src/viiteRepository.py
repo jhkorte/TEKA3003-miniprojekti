@@ -34,7 +34,7 @@ class ViiteRepository:
         key = input("Anna viitteen avain\n"); print()
         author = input("Anna authorit\n"); print()
         title = input("Anna title\n"); print()
-        year = input("Anna vuosi\n"); print()
+        year = input("Anna year\n"); print()
         booktitle = input("Anna booktitle\n"); print()
         uusi_viite = Viite("Inproceedings", key,author,year,title,booktitle)
         print("Luotu:")
@@ -46,9 +46,9 @@ class ViiteRepository:
     def luoViiteArticle(self):
         key = input("Anna viitteen avain\n"); print()
         author = input("Anna authorit\n"); print()
-        title = input("Anna julkaisuvuosi\n"); print()
+        title = input("Anna title\n"); print()
         journal = input("Anna journal\n"); print()
-        year = input("Anna vuosi\n"); print()
+        year = input("Anna year\n"); print()
         volume = input("Anna volume\n"); print()
         pages = input("Anna pages\n"); print()
         uusi_viite = Viite("article", key,author,year,title,None,journal,volume,pages)
@@ -61,9 +61,9 @@ class ViiteRepository:
 
     def luoViiteBook(self):
         key = input("Anna viitteen avain\n"); print()
-        author = input("Anna authorit\n"); print()
-        title = input("Anna julkaisuvuosi\n"); print()
-        year = input("Anna vuosi\n"); print()
+        author = input("Anna author\n"); print()
+        title = input("Anna title\n"); print()
+        year = input("Anna year\n"); print()
         publisher = input("Anna publisher\n"); print()
         uusi_viite = Viite("book", key,author,year,title,None,None,None,None,publisher)
         print("Luotu:")
