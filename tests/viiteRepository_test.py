@@ -22,8 +22,8 @@ def test_luoViiteInproceedings():
 
     viite = testi_viite.viitteet[0]
     assert isinstance(viite, Viite)
-    assert viite.key == "avain1"
-    assert viite.author == "Matti Meikäläinen"
-    assert viite.title == "Testiotsikko"
-    assert viite.year == "2023"
-    assert viite.booktitle == "ICSE Conference"
+    assert viite.key == "avain"
+    assert viite.author == "Jon"
+    assert viite.title == "otsikko"
+    assert viite.year == "2025"
+    assert viite.booktitle == "kirjaotsikko"
