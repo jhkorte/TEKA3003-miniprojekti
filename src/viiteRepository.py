@@ -1,4 +1,4 @@
-from viite import Viite
+from .viite import Viite
 
 class ViiteRepository:
     def __init__(self):
