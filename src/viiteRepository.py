@@ -1,38 +1,79 @@
 from viite import Viite
 
 class ViiteRepository:
-    def luoViite(self):
-        uusi_viite = Viite()
+    def __init__(self):
+        self.viitteet = []
+
+    def viitteenLuontiKysely(self):
+        print("Valitse viitteen tyyppi: inproceedings, article, book")
+        print("Palaa takaisin komennolla: peruuta")
+        while True:
+            komento = input().strip().lower()
+            print()
+            if komento in ["inproceedings", "article", "book", "peruuta"]:
+                break
+            print("Väärä komento, valitse tyyppi: inproceedings, article, book")
+            print("Palaa takaisin komennolla: peruuta")
+
+        if komento == "inproceedings":
+            self.luoViiteInproceedings()
+
+        if komento == "article":
+            self.luoViiteArticle()
+
+        if komento == "book":
+            self.luoViiteBook()
+
+        if komento == "peruuta":
+            return
+
+
+    def luoViiteInproceedings(self):
+        key = input("Anna viitteen avain\n"); print()
+        author = input("Anna authorit\n"); print()
+        title = input("Anna title\n"); print()
+        year = input("Anna vuosi\n"); print()
+        booktitle = input("Anna booktitle\n"); print()
+        uusi_viite = Viite("Inproceedings", key,author,year,title,booktitle)
+        print("Luotu:")
+        print(uusi_viite); print()
+        self.viitteet.append(uusi_viite)
+
+
+    def luoViiteArticle(self):
+        key = input("Anna viitteen avain\n"); print()
+        author = input("Anna authorit\n"); print()
+        title = input("Anna julkaisuvuosi\n"); print()
+        journal = input("Anna journal\n"); print()
+        year = input("Anna vuosi\n"); print()
+        volume = input("Anna volume\n"); print()
+        pages = input("Anna pages\n"); print()
+        uusi_viite = Viite("article", key,author,year,title,None,journal,volume,pages)
+        print("Luotu:"); 
+        print(uusi_viite); print()
+        self.viitteet.append(uusi_viite)
+
+
+
+    def luoViiteBook(self):
+        key = input("Anna viitteen avain\n"); print()
+        author = input("Anna authorit\n"); print()
+        title = input("Anna julkaisuvuosi\n"); print()
+        year = input("Anna vuosi\n"); print()
+        publisher = input("Anna publisher\n"); print()
+        uusi_viite = Viite("book", key,author,year,title,None,None,None,None,publisher)
+        print("Luotu:")
+        print(uusi_viite); print()
+        self.viitteet.append(uusi_viite)
+
+
+    def tulostaViitteetListasta(self):
+        if len(self.viitteet) < 1:
+            print("Ei tallennettuja viitteitä"); print()
+            return
         
-        entryType = input("Anna entry type\n")
-        uusi_viite.entryType = entryType
+        print("Tulostetaan tallennetut viitteet"); print()
+        for viite in self.viitteet:
+            print(viite)
 
-        key = input("Anna viitteen avain\n")
-        uusi_viite.key = key
-        
-        author = input("Anna authorit\n")
-        uusi_viite.author = author
-        
-        year = input("Anna vuosi\n")
-        uusi_viite.year = year
-
-        title = input("Anna julkaisuvuosi\n")
-        uusi_viite.title = title
-
-        booktitle = input("Anna booktitle\n")
-        uusi_viite.booktitle = booktitle
-
-        journal = input("Anna journal\n")
-        uusi_viite.journal = journal
-
-        volume = input("Anna volume\n")
-        uusi_viite.volume = volume
-
-        pages = input("Anna pages\n")
-        uusi_viite.pages = pages
-
-        publisher = input("Anna publisher\n")
-        uusi_viite.publisher = publisher
-
-        uusi_viite.viiteToString()
-        
+    # def tallennaViitteetTiedostoon(self):
