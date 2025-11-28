@@ -197,3 +197,45 @@
     booktitle = {kirjaotsikko},
 }
 
+@book{ks,
+    author = {pasi},
+    title = {kk},
+    year = {200},
+    publisher = {jas},
+}
+
+@Inproceedings{avain,
+    author = {Jon},
+    title = {otsikko},
+    year = {2025},
+    booktitle = {kirjaotsikko},
+}
+
+@Inproceedings{avain,
+    author = {Jon},
+    title = {otsikko},
+    year = {2025},
+    booktitle = {kirjaotsikko},
+}
+
+@book{jap,
+    author = {jap},
+    title = {jap},
+    year = {jap},
+    publisher = {jap},
+}
+
+@Inproceedings{avain,
+    author = {Jon},
+    title = {otsikko},
+    year = {2025},
+    booktitle = {kirjaotsikko},
+}
+
+@Inproceedings{avain,
+    author = {Jon},
+    title = {otsikko},
+    year = {2025},
+    booktitle = {kirjaotsikko},
+}
+

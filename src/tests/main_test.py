@@ -1,8 +1,8 @@
 import unittest
 import io
 from unittest.mock import Mock, patch, ANY
-from src.viiteRepository import ViiteRepository
-from src.main import main
+from viiteRepository import ViiteRepository
+from main import main
 
 class TestMain(unittest.TestCase):
     def setUp(self):

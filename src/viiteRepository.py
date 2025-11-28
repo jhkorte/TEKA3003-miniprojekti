@@ -1,4 +1,4 @@
-from .viite import Viite
+from viite import Viite
 from pathlib import Path
 
 

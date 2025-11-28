@@ -1,6 +1,6 @@
 import unittest
-from src.viiteRepository import ViiteRepository
-from src.viite import Viite
+from viiteRepository import ViiteRepository
+from viite import Viite
 from unittest.mock import Mock
 
 def test_luoViiteInproceedings(monkeypatch):
