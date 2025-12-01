@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-12-01T12:56:23.149942" rpa="false" schemaversion="5">
+<suite id="s1" name="Main" source="C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\robotTests\main.robot">
+<test id="s1-t1" name="ViiteRepository New Command Test" line="5">
+<kw name="Input New Command" owner="resource">
+<kw name="Input" owner="mainLibrary">
+<arg>new</arg>
+<status status="PASS" start="2025-12-01T12:56:23.238435" elapsed="0.001646"/>
+</kw>
+<status status="PASS" start="2025-12-01T12:56:23.237248" elapsed="0.003108"/>
+</kw>
+<kw name="Input Book" owner="mainLibrary">
+<msg time="2025-12-01T12:56:23.241628" level="INFO">${result} = Luotu: @book{key1,
+    author = {Matti Meikäläinen},
+    title = {Testikirja},
+    year = {2020},
+    publisher = {Testikustantaja},
+}</msg>
+<var>${result}</var>
+<arg>key1 Matti Meikäläinen</arg>
+<arg>Testikirja</arg>
+<arg>2020</arg>
+<arg>Testikustantaja</arg>
+<status status="PASS" start="2025-12-01T12:56:23.241047" elapsed="0.000670"/>
+</kw>
+<kw name="Log To Console" owner="BuiltIn">
+<arg>${result}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.242237" elapsed="0.000701"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>Luotu: @book{key1,</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.243347" elapsed="0.000327"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>author = {Matti Meikäläinen},</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.244022" elapsed="0.000319"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>title = {Testikirja},</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.244677" elapsed="0.000307"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>year = {2020},</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.245340" elapsed="0.000300"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${result}</arg>
+<arg>publisher = {Testikustantaja},</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-01T12:56:23.245986" elapsed="0.000290"/>
+</kw>
+<status status="PASS" start="2025-12-01T12:56:23.235477" elapsed="0.011168"/>
+</test>
+<status status="PASS" start="2025-12-01T12:56:23.153297" elapsed="0.094623"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Main" id="s1" pass="1" fail="0" skip="0">Main</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
