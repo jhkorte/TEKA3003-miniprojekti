@@ -122,3 +122,29 @@ class ViiteRepository:
             return []
 
 
+    def Filtteroi(self):
+        tyypit = [
+                "entryType", 
+                "key", 
+                "author", 
+                "year", 
+                "title", 
+                "booktitle", 
+                "journal", 
+                "volume", 
+                "pages", 
+                "publisher"
+                ]
+        tyyppi = ""
+        while tyyppi not in tyypit:
+            tyyppi = input("Anna haku tyyppi esim. author\n"); print()
+        hakusana = input("Anna hakusana\n"); print()
+
+        print("Löydetyt viitteet:\n")
+        for viite in self.viitteet:
+            attribute_value = getattr(viite, tyyppi)
+            if hakusana in attribute_value:
+                print(str(viite))
+                print("--------------------------------------------------------------------")
+
+

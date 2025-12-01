@@ -54,4 +54,4 @@ class Viite:
 
     @classmethod
     def fromDictionary(cls, data):
-        return cls(**data)
+        return cls(**data) 
