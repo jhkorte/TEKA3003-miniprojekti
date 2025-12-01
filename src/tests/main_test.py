@@ -93,3 +93,16 @@ class TestMain(unittest.TestCase):
             self.assertIn("Mahdolliset komennot:", output)
             self.assertIn("New: Lisaa uusi viite", output)
             self.assertIn("Quit: Tallenna ja päätä ohjelman käyttö", output)
+
+
+    def test_hae_response(self):
+        repo = ViiteRepository()
+        repo.tulostaViitteetListasta = Mock()
+        
+        response = "hae"
+        self.assertEqual(response, "hae")
+
+        if response == "hae":
+            repo.Filtteroi()
+   
+        repo.Filtteroi.assert_called()
