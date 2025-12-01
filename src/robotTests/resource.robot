@@ -7,3 +7,6 @@ Input New Command
 
 Input Hae Command
     Input  hae
+
+Input Print Command
+    Input  print
