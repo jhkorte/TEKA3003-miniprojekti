@@ -97,7 +97,7 @@ class TestMain(unittest.TestCase):
 
     def test_hae_response(self):
         repo = ViiteRepository()
-        repo.tulostaViitteetListasta = Mock()
+        repo.Filtteroi = Mock()
         
         response = "hae"
         self.assertEqual(response, "hae")
