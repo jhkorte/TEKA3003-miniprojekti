@@ -1,7 +1,7 @@
 class Viite:
     def __init__(self, entryType=None, key=None, author=None, year=None, 
                  title=None, booktitle=None, journal=None, volume=None, 
-                 pages=None, publisher=None):
+                 pages=None, publisher=None, **_):
         self.entryType = entryType
         self.key = key
         self.author = author

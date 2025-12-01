@@ -1,6 +1,7 @@
 from viite import Viite
 from pathlib import Path
 import json
+import requests
 
 class ViiteRepository:
     def __init__(self, data_file_name="viitteet.json"):
@@ -147,4 +148,34 @@ class ViiteRepository:
                 print(str(viite))
                 print("--------------------------------------------------------------------")
 
+
+    #DOI API -rajapinta: https://www.doi.org/doi-handbook/HTML/doi-rest-api.html
+
+    def tallennaViiteDoi(self):
+        doi = input("Anna doi \n").strip().lower()
+        url = f"https://api.crossref.org/works/{doi}"
+
+        response = requests.get(url)
+        data = response.json()
+        viiteData = data.get("message", {})
+
+        if "type" in viiteData:
+            viiteData["entryType"] = viiteData.pop("type")
+
+        if "issued" in viiteData and "date-parts" in viiteData["issued"]:
+            viiteData["year"] = viiteData["issued"]["date-parts"][0][0]
+
+        authors_list = viiteData.get("author", [])
+        if authors_list:
+            viiteData["author"] = " and ".join(
+                f"{author.get('family', '')}, {author.get('given', '')}".strip(", ")
+                for author in authors_list
+            )
+
+        if viiteData.get("author") and viiteData.get("year"):
+            first_author = viiteData["author"].split(" and ")[0].split(",")[0]
+            viiteData["key"] = f"{first_author}{viiteData['year']}"
+
+        uusiViite = Viite.fromDictionary(viiteData)
+        print(str(uusiViite))
 
