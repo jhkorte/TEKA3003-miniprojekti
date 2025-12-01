@@ -46,3 +46,12 @@ class Viite:
         
         return output
         
+
+        
+    def toDictionary(self):
+        return self.__dict__
+
+
+    @classmethod
+    def fromDictionary(cls, data):
+        return cls(**data)

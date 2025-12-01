@@ -5,11 +5,12 @@ def main():
 
     while True:
         print("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa \nMahdolliset komennot: \
-              \nNew: Lisaa uusi viite \nPrint: Tulostaa tallennetut viitteet\nLuo: Luo bibtex muotoisen tiedoston ja lisää luodut viitteet sinne"  \
-               "Quit: Tallenna ja päätä ohjelman käyttö \n")
+              \nNew: Lisaa uusi viite \nPrint: Tulostaa tallennetut viitteet\nLuo: Luo bibtex muotoisen tiedoston ja lisää luodut viitteet sinne  \
+               \nQuit: Tallenna ja päätä ohjelman käyttö \n")
         response = input("Anna komento \n").strip().lower(); print()
 
         if response == "quit":
+            repo.tallennaViitteetJsoniin()
             break
 
         if response == "new":
@@ -20,6 +21,7 @@ def main():
         
         if response == "luo":
             repo.tallennaViitteetTiedostoon()
+            
 
 if __name__ == "__main__":
     main()

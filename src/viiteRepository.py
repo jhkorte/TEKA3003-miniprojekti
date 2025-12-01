@@ -1,10 +1,12 @@
 from viite import Viite
 from pathlib import Path
-
+import json
 
 class ViiteRepository:
-    def __init__(self):
-        self.viitteet = []
+    def __init__(self, data_file_name="viitteet.json"):
+        self.data_file_name = data_file_name
+        self.viitteet = self.lataaViitteetTiedostosta()
+
 
     def viitteenLuontiKysely(self):
         print("Valitse viitteen tyyppi: inproceedings, article, book")
@@ -40,7 +42,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
-        self.tallennaViitteetTiedostoon(uusi_viite)
+
 
 
     def luoViiteArticle(self):
@@ -55,7 +57,7 @@ class ViiteRepository:
         print("Luotu:"); 
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
-        self.tallennaViitteetTiedostoon(uusi_viite)
+
 
 
 
@@ -69,21 +71,54 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
-        self.tallennaViitteetTiedostoon(uusi_viite)
+
 
 
     def tulostaViitteetListasta(self):
         if len(self.viitteet) < 1:
             print("Ei tallennettuja viitteitä"); print()
             return
-        
+
         print("Tulostetaan tallennetut viitteet"); print()
         for viite in self.viitteet:
             print(viite)
 
-    def tallennaViitteetTiedostoon(self, reference):
-        with open("references.txt", "a") as f:
-            f.write(reference.__str__())
-            f.write("\n")
-            f.write("\n")
+
+    def tallennaViitteetTiedostoon(self):
+        with open("references.bib", "w") as f:
+            for viite in self.viitteet:
+                f.write(str(viite))
+                f.write("\n")
+
+
+    def tallennaViitteetJsoniin(self):
+        try:
+            viite_dictionary = [viite.toDictionary() for viite in self.viitteet]
+
+            with open(self.data_file_name, "w", encoding="utf-8") as f:
+                json.dump(viite_dictionary, f, indent=4)
+
+            print(f"\nViitteet tallennettu tiedostoon: {self.data_file_name}.")
+        except Exception as e:
+            print(f"\nTallennus epäonnistui: {e}")
+
+
+    def lataaViitteetTiedostosta(self):
+        data_file = Path(self.data_file_name)
+
+        if not data_file.exists():
+            return []
+
+        try:
+            with open(data_file, "r", encoding="utf-8") as f:
+                viite_dictionary = json.load(f)
+
+                viitteet = [Viite.fromDictionary(d) for d in viite_dictionary]
+                print(f"Ladattu {len(viitteet)} viitettä tiedostosta {self.data_file_name}.\n")
+                return viitteet
+
+        except Exception as e:
+            print(f"Lataus epäonnistui: {e}")
+            return []
+
 
