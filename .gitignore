@@ -1,5 +1,6 @@
 # Yleistä
 
 src/__pycache__/
-
+*.pyc
 references.txt
+references.bib
