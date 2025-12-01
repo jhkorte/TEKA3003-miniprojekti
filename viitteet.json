@@ -118,5 +118,41 @@
         "volume": null,
         "pages": null,
         "publisher": null
+    },
+    {
+        "entryType": "book",
+        "key": "book",
+        "author": "Matti Meik\u00e4l\u00e4inen",
+        "year": "2020",
+        "title": "Testikirja",
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "Testikustantaja"
+    },
+    {
+        "entryType": "book",
+        "key": "pissa",
+        "author": "matti",
+        "year": "2020",
+        "title": "testi",
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "testi"
+    },
+    {
+        "entryType": "Inproceedings",
+        "key": "avain",
+        "author": "Jon",
+        "year": "2025",
+        "title": "otsikko",
+        "booktitle": "kirjaotsikko",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
     }
 ]

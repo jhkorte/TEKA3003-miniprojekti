@@ -72,6 +72,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
+        return uusi_viite
 
 
 

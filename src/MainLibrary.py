@@ -1,4 +1,5 @@
 from viiteRepository import ViiteRepository
+from viite import Viite
 from stub_io import StubIO
 
 class mainLibrary:
@@ -8,6 +9,16 @@ class mainLibrary:
     
     def input(self, value):
         self._io.add_input(value)
+
+    def input_book(key, author, title, year, publisher):
+        viite = Viite(
+            entryType="book",
+            key="key1", 
+            author="Matti Meikäläinen",
+            year="2020",
+            title="Testikirja",
+            publisher="Testikustantaja")
+        return f"Luotu: {viite}"
 
     def output_should_contain(self, value):
         outputs = self._io.outputs

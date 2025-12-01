@@ -1,1 +1,50 @@
-[]
+[
+    {
+        "entryType": "Inproceedings",
+        "key": "1",
+        "author": "1",
+        "year": "1",
+        "title": "1",
+        "booktitle": "1",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
+    },
+    {
+        "entryType": "article",
+        "key": "1",
+        "author": "1",
+        "year": "1",
+        "title": "1",
+        "booktitle": null,
+        "journal": "1",
+        "volume": "1",
+        "pages": "1",
+        "publisher": null
+    },
+    {
+        "entryType": "book",
+        "key": "1",
+        "author": "1",
+        "year": "1",
+        "title": "1",
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "1"
+    },
+    {
+        "entryType": "article",
+        "key": "test",
+        "author": "test",
+        "year": "test",
+        "title": "test",
+        "booktitle": null,
+        "journal": "test",
+        "volume": "test",
+        "pages": "test",
+        "publisher": null
+    }
+]
