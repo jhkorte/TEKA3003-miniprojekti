@@ -22,12 +22,15 @@ class TestMain(unittest.TestCase):
 
     def test_quit_response(self):
         repo = ViiteRepository()
+        repo.tallennaViitteetJsoniin = Mock()
         
         response = "quit"
         self.assertEqual(response, "quit")
 
         if response == "quit":
-            pass
+            repo.tallennaViitteetJsoniin()
+
+        repo.tallennaViitteetJsoniin.assert_called()
 
     def test_new_response(self):
         repo = ViiteRepository()
@@ -41,7 +44,7 @@ class TestMain(unittest.TestCase):
    
         repo.viitteenLuontiKysely.assert_called()
 
-    def test_tulosta_response(self):
+    def test_print_response(self):
         repo = ViiteRepository()
         repo.tulostaViitteetListasta = Mock()
         
@@ -53,7 +56,7 @@ class TestMain(unittest.TestCase):
    
         repo.tulostaViitteetListasta.assert_called()
 
-    def test_tallenna_response(self):
+    def test_luo_response(self):
         repo = ViiteRepository()
         repo.tallennaViitteetTiedostoon = Mock()
         
