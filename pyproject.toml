@@ -7,7 +7,8 @@ authors = [
     { name = "Panu Leppänen" },
     { name = "Ville Salonen" },
     { name = "Joonas Paasovaara" },
-    { name = "Paulus Kopperoinen" }
+    { name = "Paulus Kopperoinen" },
+    { name = "Pasi Rautiainen" }
 ]
 readme = "README.md"
 requires-python = "^3.10"
