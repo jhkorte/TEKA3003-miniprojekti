@@ -4,7 +4,7 @@ from viite import Viite
 from unittest.mock import Mock
 
 def test_luoViiteInproceedings(monkeypatch):
-    repo = ViiteRepository()
+    repo = ViiteRepository("")
     repo.viitteet = []
 
     mock_input = Mock(side_effect=[
@@ -59,3 +59,40 @@ def test_TulostaViitteetListasta_tyhja_lista(monkeypatch):
     assert mock_print.call_count == 2
     mock_print.assert_any_call("Ei tallennettuja viitteitä")
     mock_print.assert_any_call()
+
+
+def test_lataaViitteetTiedostosta_ei_tiedostoa(monkeypatch):
+    repo = ViiteRepository("ei_ole.json")
+
+    def mock_exists(self):
+        return False
+    
+    monkeypatch.setattr("pathlib.Path.exists", mock_exists)
+
+    tulos = repo.lataaViitteetTiedostosta()
+    assert tulos == []
+
+
+def test_lataaViitteetTiedostosta(monkeypatch):
+    repo = ViiteRepository("test.json")
+
+    monkeypatch.setattr("pathlib.Path.exists", lambda self: True)
+
+    fake_json = [{"key": "a"}, {"key": "b"}]
+
+    monkeypatch.setattr("json.load", lambda f: fake_json)
+
+    file_mock = Mock()
+    mock_open = Mock(return_value=file_mock)
+    file_mock.__enter__ = Mock(return_value=file_mock)
+    file_mock.__exit__ = Mock()
+
+    monkeypatch.setattr("builtins.open", mock_open)
+
+    mock_viite = Mock()
+    monkeypatch.setattr("viite.Viite.fromDictionary", lambda d: mock_viite)
+
+    tulos = repo.lataaViitteetTiedostosta()
+
+    assert len(tulos) == 2
+    assert tulos[0] is mock_viite
