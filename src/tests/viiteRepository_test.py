@@ -98,13 +98,32 @@ def test_lataaViitteetTiedostosta(monkeypatch):
     assert tulos[0] is mock_viite
 
 
+def test_tallennaViitteetTiedostoon(monkeypatch):
+    repo = ViiteRepository()
+    viite1 = Viite(author="Testaaja1",year="2000",title="title1")
+    repo.viitteet = [viite1]
+
+    mock_file = Mock()
+    mock_open = Mock(return_value=mock_file)
+
+    monkeypatch.setattr("builtins.open", mock_open)
+    mock_file.__enter__ = Mock(return_value=mock_file)
+    mock_file.__exit__ = Mock()
+
+    repo.tallennaViitteetTiedostoon()
+    mock_open.assert_called_with("references.bib", "w")
+    mock_file.write.assert_any_call(str(viite1))
+    mock_file.write.assert_any_call("\n")
+    assert mock_file.write.call_count == 2
+
+
 def test_Filtteroi(monkeypatch):
     repo = ViiteRepository()
     viite1 = Viite(author="Testaaja1",year="2000",title="title1")
     viite2 = Viite(author="Testaaja2",year="2001",title="title2")
     repo.viitteet = [viite1, viite2]
 
-    mock_input = Mock(side_effect=["author", "Testaaja1"]) 
+    mock_input = Mock(side_effect=["author", "Testaaja1"])
     monkeypatch.setattr("builtins.input", mock_input)
 
     mock_print = Mock()
