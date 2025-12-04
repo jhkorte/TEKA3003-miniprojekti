@@ -96,3 +96,22 @@ def test_lataaViitteetTiedostosta(monkeypatch):
 
     assert len(tulos) == 2
     assert tulos[0] is mock_viite
+
+
+def test_Filtteroi(monkeypatch):
+    repo = ViiteRepository()
+    viite1 = Viite(author="Testaaja1",year="2000",title="title1")
+    viite2 = Viite(author="Testaaja2",year="2001",title="title2")
+    repo.viitteet = [viite1, viite2]
+
+    mock_input = Mock(side_effect=["author", "Testaaja1"]) 
+    monkeypatch.setattr("builtins.input", mock_input)
+
+    mock_print = Mock()
+    monkeypatch.setattr("builtins.print", mock_print)
+
+    repo.Filtteroi()
+    mock_print.assert_any_call(str(viite1))
+
+    kutsut = mock_print.call_args_list
+    assert str(viite2) not in str(kutsut)

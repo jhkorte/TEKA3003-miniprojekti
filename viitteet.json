@@ -196,5 +196,17 @@
         "volume": "12",
         "pages": null,
         "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+        "entryType": "Inproceedings",
+        "key": "avain",
+        "author": "Jon",
+        "year": "2025",
+        "title": "otsikko",
+        "booktitle": "kirjaotsikko",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
     }
 ]
