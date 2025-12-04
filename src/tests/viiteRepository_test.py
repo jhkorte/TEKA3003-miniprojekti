@@ -98,6 +98,56 @@ def test_lataaViitteetTiedostosta(monkeypatch):
     assert tulos[0] is mock_viite
 
 
+def test_tallennaViitteetJsoniin_onnistuu(monkeypatch):
+    tiedostonimi = "test_viitteet.json"
+    repo = ViiteRepository(tiedostonimi)
+    viite1 = Viite(author="Testaaja1",year="2000",title="title1")
+    viite2 = Viite(author="Testaaja2",year="2001",title="title2")
+    repo.viitteet = [viite1]
+
+    mock_file = Mock()
+    mock_open = Mock(return_value=mock_file)
+    mock_file.__enter__ = Mock(return_value=mock_file)
+    mock_file.__exit__ = Mock()
+    monkeypatch.setattr("builtins.open", mock_open)
+
+    mock_json_dump = Mock()
+    monkeypatch.setattr("json.dump", mock_json_dump)
+
+    mock_print = Mock()
+    monkeypatch.setattr("builtins.print", mock_print)
+
+    repo.tallennaViitteetJsoniin()
+
+    mock_open.assert_called_with(tiedostonimi, "w", encoding="utf-8")
+    dictionary = [viite1.toDictionary()]
+    mock_json_dump.assert_called_with(dictionary, mock_file, indent=4)
+    mock_print.assert_any_call(f"\nViitteet tallennettu tiedostoon: {tiedostonimi}.")
+
+
+def test_tallennaViitteetJsoniin_virheilmoitus(monkeypatch):
+    repo = ViiteRepository("virheellinen.json")
+    viite1 = Viite(author="Testaaja1",year="2000",title="title1")
+    repo.viitteet = [viite1]
+
+    mock_open = Mock(side_effect=IOError("Levyvirhe"))
+    monkeypatch.setattr("builtins.open", mock_open)
+
+    mock_print = Mock()
+    monkeypatch.setattr("builtins.print", mock_print)
+
+    repo.tallennaViitteetJsoniin()
+
+    loytyi_virheviesti = False
+    for call in mock_print.call_args_list:
+        args, _ = call
+        if args and "Tallennus epäonnistui" in str(args[0]):
+            loytyi_virheviesti = True
+            break
+
+    assert loytyi_virheviesti
+
+
 def test_tallennaViitteetTiedostoon(monkeypatch):
     repo = ViiteRepository()
     viite1 = Viite(author="Testaaja1",year="2000",title="title1")
