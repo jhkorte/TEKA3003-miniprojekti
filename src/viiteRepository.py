@@ -151,21 +151,30 @@ class ViiteRepository:
 
 
     #DOI API -rajapinta: https://www.doi.org/doi-handbook/HTML/doi-rest-api.html
+    #Tekee pyynnön doi sivuston api:lle, joka palauttaa json muodossa kaikki viitteen tiedot
+    #Viitteestä haetaan sitten kaikki sen tallentamista varten oleelliset tiedot oikeassa muodossa
+    #Viite tallennetaan sitten self.viitteet ja uusi viite tulostetaan 
 
     def tallennaViiteDoi(self):
+
+        #Lähetetään pyyntö viitteen tiedoista
         doi = input("Anna doi \n").strip().lower()
         url = f"https://api.crossref.org/works/{doi}"
 
+        #Puretaan vastaus json muotoon ja haetaan message sarakkeesta viitteen tiedot
         response = requests.get(url)
         data = response.json()
         viiteData = data.get("message", {})
 
+        #Muutetaan json tiedostossa oleva type entryTypeksi ja 
+        #issued->date-parts alta haetaan julkaisuvuosi
         if "type" in viiteData:
             viiteData["entryType"] = viiteData.pop("type")
 
         if "issued" in viiteData and "date-parts" in viiteData["issued"]:
             viiteData["year"] = viiteData["issued"]["date-parts"][0][0]
 
+        #haetaan author listasta authorien nimet ja listataan ne oikeaan muotoon
         authors_list = viiteData.get("author", [])
         if authors_list:
             viiteData["author"] = " and ".join(
@@ -173,10 +182,14 @@ class ViiteRepository:
                 for author in authors_list
             )
 
+        #Haetaan ensimmäisen authorin nimi ja yhdistetään se julkaisuvuoteen
+        #jolloin saadaan muodostettua viitteelle key
         if viiteData.get("author") and viiteData.get("year"):
             first_author = viiteData["author"].split(" and ")[0].split(",")[0]
             viiteData["key"] = f"{first_author}{viiteData['year']}"
 
+        #Muutetaan nyt json muodossa oleva viite haluttuun oliomuotoon
+        #ja lisätään se viitteisiin
         uusiViite = Viite.fromDictionary(viiteData)
         self.viitteet.append(uusiViite)
         print(str(uusiViite))
