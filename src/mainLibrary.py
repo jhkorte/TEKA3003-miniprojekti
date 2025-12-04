@@ -1,8 +1,14 @@
+"""Main library module for robot tests."""
 from viiteRepository import ViiteRepository
 from viite import Viite
 from stub_io import StubIO
 
+
+
 class mainLibrary:
+    """
+    Main library class for robot tests.
+    """
     def __init__(self):
         self._io = StubIO()
         self._viiteRepository = ViiteRepository()
