@@ -134,3 +134,38 @@ def test_Filtteroi(monkeypatch):
 
     kutsut = mock_print.call_args_list
     assert str(viite2) not in str(kutsut)
+
+
+def _input_mock(monkeypatch, syotteet):
+    iterator = iter(syotteet)
+    monkeypatch.setattr("builtins.input", lambda: next(iterator))
+
+
+def test_viitteenLuontiKysely_article(monkeypatch):
+    repo = ViiteRepository("test.json")
+    repo.luoViiteArticle = Mock()
+    repo.luoViiteBook = Mock()
+    repo.luoViiteInproceedings = Mock()
+
+    _input_mock(monkeypatch, ["article"])
+
+    repo.viitteenLuontiKysely()
+
+    assert repo.luoViiteArticle.call_count == 1
+    assert repo.luoViiteBook.call_count == 0
+    assert repo.luoViiteInproceedings.call_count == 0
+
+
+def test_viitteenLuontiKysely_peruuta(monkeypatch):
+    repo = ViiteRepository("test.json")
+    repo.luoViiteArticle = Mock()
+    repo.luoViiteBook = Mock()
+    repo.luoViiteInproceedings = Mock()
+
+    _input_mock(monkeypatch, ["peruuta"])
+
+    repo.viitteenLuontiKysely()
+
+    assert repo.luoViiteArticle.call_count == 0
+    assert repo.luoViiteBook.call_count == 0
+    assert repo.luoViiteInproceedings.call_count == 0
