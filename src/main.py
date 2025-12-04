@@ -15,9 +15,11 @@ def main():
 
         if response == "doi":
             repo.tallennaViiteDoi()
+            repo.tallennaViitteetJsoniin()
 
         if response == "new":
             repo.viitteenLuontiKysely()
+            repo.tallennaViitteetJsoniin()
         
         if response == "print":
             repo.tulostaViitteetListasta()

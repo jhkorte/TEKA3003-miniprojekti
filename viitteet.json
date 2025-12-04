@@ -154,5 +154,47 @@
         "volume": null,
         "pages": null,
         "publisher": null
+    },
+    {
+        "entryType": "journal-article",
+        "key": "Casati2011",
+        "author": "Casati, Paula and Campi, Mabel and Morrow, Darren J and Fernandes, John F and Walbot, Virginia",
+        "year": 2011,
+        "title": [
+            "Transcriptomic, proteomic and metabolomic analysis of UV-B signaling in maize"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "12",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+        "entryType": "journal-article",
+        "key": "Casati2011",
+        "author": "Casati, Paula and Campi, Mabel and Morrow, Darren J and Fernandes, John F and Walbot, Virginia",
+        "year": 2011,
+        "title": [
+            "Transcriptomic, proteomic and metabolomic analysis of UV-B signaling in maize"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "12",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+        "entryType": "journal-article",
+        "key": "Casati2011",
+        "author": "Casati, Paula and Campi, Mabel and Morrow, Darren J and Fernandes, John F and Walbot, Virginia",
+        "year": 2011,
+        "title": [
+            "Transcriptomic, proteomic and metabolomic analysis of UV-B signaling in maize"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "12",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
     }
 ]
