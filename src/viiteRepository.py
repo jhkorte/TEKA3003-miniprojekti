@@ -178,5 +178,6 @@ class ViiteRepository:
             viiteData["key"] = f"{first_author}{viiteData['year']}"
 
         uusiViite = Viite.fromDictionary(viiteData)
+        self.viitteet.append(uusiViite)
         print(str(uusiViite))
 
