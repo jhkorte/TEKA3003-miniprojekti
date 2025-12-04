@@ -30,6 +30,64 @@ def test_luoViiteInproceedings(monkeypatch):
     assert viite.booktitle == "kirjaotsikko"
 
 
+def test_luoViiteArticle(monkeypatch):
+    repo = ViiteRepository("")
+    repo.viitteet = []
+
+    mock_input = Mock(side_effect=[
+        "key",
+        "author",
+        "title",
+        "journal",
+        "year",
+        "volume",
+        "pages"
+    ])
+
+    monkeypatch.setattr("builtins.input", mock_input)
+
+    repo.luoViiteArticle()
+
+    assert len(repo.viitteet) == 1
+
+    viite = repo.viitteet[0]
+    assert isinstance(viite, Viite)
+    assert viite.key == "key"
+    assert viite.author == "author"
+    assert viite.title == "title"
+    assert viite.journal == "journal"
+    assert viite.year == "year"
+    assert viite.volume == "volume"
+    assert viite.pages == "pages"
+
+
+def test_luoViiteBook(monkeypatch):
+    repo = ViiteRepository("")
+    repo.viitteet = []
+
+    mock_input = Mock(side_effect=[
+        "key",
+        "author",
+        "title",
+        "year",
+        "publisher"
+    ])
+
+    monkeypatch.setattr("builtins.input", mock_input)
+
+    repo.luoViiteBook()
+
+    assert len(repo.viitteet) == 1
+
+    viite = repo.viitteet[0]
+    assert isinstance(viite, Viite)
+    assert viite.key == "key"
+    assert viite.author == "author"
+    assert viite.title == "title"
+    assert viite.year == "year"
+    assert viite.publisher == "publisher"
+
+
 def test_TulostaViitteetListasta(monkeypatch):
     repo = ViiteRepository()
     repo.viitteet = ["viite 1", "viite 2", "viite 3"]
