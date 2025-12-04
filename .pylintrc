@@ -1,3 +1,6 @@
+[MASTER]
+ignore=tests
+
 [MAIN]
 
 # Minimum Python version to use for version dependent checks. Will default to
