@@ -1,6 +1,12 @@
+"""
+main moduuli viitteiden hallintaan.
+"""
 from viiteRepository import ViiteRepository
 
 def main():
+    """
+    main funktio viitteiden hallintaan.
+    """
     repo = ViiteRepository()
 
     while True:
