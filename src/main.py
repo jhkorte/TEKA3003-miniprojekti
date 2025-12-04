@@ -26,16 +26,16 @@ def main():
         if response == "new":
             repo.viitteenLuontiKysely()
             repo.tallennaViitteetJsoniin()
-        
+
         if response == "print":
             repo.tulostaViitteetListasta()
-        
+
         if response == "luo":
             repo.tallennaViitteetTiedostoon()
 
         if response == "hae":
             repo.Filtteroi()
-            
+
 
 if __name__ == "__main__":
     main()

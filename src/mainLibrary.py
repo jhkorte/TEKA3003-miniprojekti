@@ -12,14 +12,14 @@ class mainLibrary:
     def __init__(self):
         self._io = StubIO()
         self._viiteRepository = ViiteRepository()
-    
+
     def input(self, value):
         self._io.add_input(value)
 
     def input_book(key, author, title, year, publisher):
         viite = Viite(
             entryType="book",
-            key="key1", 
+            key="key1",
             author="Matti Meikäläinen",
             year="2020",
             title="Testikirja",

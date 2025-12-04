@@ -18,7 +18,7 @@ def test_luoViiteInproceedings(monkeypatch):
     monkeypatch.setattr("builtins.input", mock_input)
 
     repo.luoViiteInproceedings()
-    
+
     assert len(repo.viitteet) == 1
 
     viite = repo.viitteet[0]
@@ -66,7 +66,7 @@ def test_lataaViitteetTiedostosta_ei_tiedostoa(monkeypatch):
 
     def mock_exists(self):
         return False
-    
+
     monkeypatch.setattr("pathlib.Path.exists", mock_exists)
 
     tulos = repo.lataaViitteetTiedostosta()

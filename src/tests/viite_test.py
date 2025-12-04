@@ -17,7 +17,7 @@ class TestViite(unittest.TestCase):
             pages="100-110",
             publisher=None
         )
-    
+
         expected_str = (
             "@article{123ABC,\n"
             "    author = {Matti},\n"
