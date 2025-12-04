@@ -1,4 +1,8 @@
+"""Stub IO module for testing purposes."""
 class StubIO:
+    """
+    A stub IO class that simulates input and output operations.
+    """
     def __init__(self, inputs=None):
         self.inputs = inputs or []
         self.outputs = []
