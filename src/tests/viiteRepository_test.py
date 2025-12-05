@@ -4,7 +4,7 @@ from viite import Viite
 from unittest.mock import Mock
 
 def test_luoViiteInproceedings(monkeypatch):
-    repo = ViiteRepository("")
+    repo = ViiteRepository()
     repo.viitteet = []
 
     mock_input = Mock(side_effect=[
@@ -31,7 +31,7 @@ def test_luoViiteInproceedings(monkeypatch):
 
 
 def test_luoViiteArticle(monkeypatch):
-    repo = ViiteRepository("")
+    repo = ViiteRepository()
     repo.viitteet = []
 
     mock_input = Mock(side_effect=[
@@ -62,7 +62,7 @@ def test_luoViiteArticle(monkeypatch):
 
 
 def test_luoViiteBook(monkeypatch):
-    repo = ViiteRepository("")
+    repo = ViiteRepository()
     repo.viitteet = []
 
     mock_input = Mock(side_effect=[

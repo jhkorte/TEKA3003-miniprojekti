@@ -46,5 +46,29 @@
         "volume": "test",
         "pages": "test",
         "publisher": null
+    },
+    {
+        "entryType": "book",
+        "key": "dropboxtesti",
+        "author": "a",
+        "year": "a",
+        "title": "a",
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "a"
+    },
+    {
+        "entryType": "article",
+        "key": "dropboxtesti2",
+        "author": "a",
+        "year": "a",
+        "title": "a",
+        "booktitle": null,
+        "journal": "a",
+        "volume": "a",
+        "pages": "a",
+        "publisher": null
     }
 ]
