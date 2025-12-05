@@ -14,15 +14,26 @@ DROPBOX_TOKEN = os.getenv("DROPBOX_TOKEN")
 class ViiteRepository:
     def __init__(self, data_file_name="viitteet.json"):
         self.data_file_name = data_file_name
-
-        self.dbx = dropbox.Dropbox(DROPBOX_TOKEN)
         self.dropbox_path = f"/{data_file_name}"
-        try:
-            self.lataaDropboxista()
-            print("Viitteet ladattu Dropboxista.")
-        except Exception as e:
-            print(f"Virhe: {e}. \n Käytetään paikallista tallennusta")
-            
+        self.dbx = None
+
+        app_key = os.getenv("DROPBOX_APP_KEY")
+        app_secret = os.getenv("DROPBOX_APP_SECRET")
+        refresh_token = os.getenv("DROPBOX_REFRESH_TOKEN")
+
+        if app_key and app_secret and refresh_token:
+            try:
+                self.dbx = dropbox.Dropbox(
+                    app_key=app_key,
+                    app_secret=app_secret,
+                    oauth2_refresh_token=refresh_token
+                )
+                self.lataaDropboxista()
+            except Exception as e:
+                print(f"Virhe Dropbox-yhteydessä: {e}")
+                print("Käytetään paikallista tiedostoa.")
+        else:
+            print("Käytetään paikallista tallennusta.")
 
         self.viitteet = self.lataaViitteetTiedostosta()
 
