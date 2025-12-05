@@ -2,17 +2,31 @@
 main moduuli viitteiden hallintaan.
 """
 from viiteRepository import ViiteRepository
+import sys
+sys.stdout.reconfigure(encoding='utf-8')
 
 def main():
     """
     main funktio viitteiden hallintaan.
     """
+    
     repo = ViiteRepository()
+    
+    commands = """Mahdolliset komennot:
+  New:     Lisää uusi viite
+  Print:   Tulosta tallennetut viitteet
+  Hae:     Hae viitteitä
+  Luo:     Luo .bib-tiedosto
+  Doi:     Lisää viite DOI-tunnisteella
+  Dropbox: Tallenna tietokanta verkkoon
+  Help:    Tulostaa komennot
+  Quit:    Tallenna ja lopeta
+    """
+    print("Tämä on käyttöliittymäsovellus viitteiden hallintaan bibtex muodossa")
+    print(commands)
 
     while True:
-        print("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa \nMahdolliset komennot: \
-              \nNew: Lisaa uusi viite \nPrint: Tulostaa tallennetut viitteet\nDoi: Lisää viite doi tunnisteella \nLuo: Luo bibtex muotoisen tiedoston ja lisää luodut viitteet sinne  \
-               \nQuit: Tallenna ja päätä ohjelman käyttö \nHae: hae viitteitä\n")
+        
         response = input("Anna komento \n").strip().lower(); print()
 
         if response == "quit":
@@ -25,7 +39,7 @@ def main():
 
         if response == "new":
             repo.viitteenLuontiKysely()
-            repo.tallennaViitteetJsoniin()
+            
 
         if response == "print":
             repo.tulostaViitteetListasta()
@@ -35,6 +49,12 @@ def main():
 
         if response == "hae":
             repo.Filtteroi()
+
+        if response =="dropbox":
+            repo.tallennaDropboxiin()
+
+        if response == "help":
+            print(commands)
 
 
 if __name__ == "__main__":

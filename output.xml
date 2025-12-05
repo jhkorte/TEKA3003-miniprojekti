@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-12-01T12:56:23.149942" rpa="false" schemaversion="5">
-<suite id="s1" name="Main" source="C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\robotTests\main.robot">
-<test id="s1-t1" name="ViiteRepository New Command Test" line="5">
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-12-05T10:15:03.014277" rpa="false" schemaversion="5">
+<suite id="s1" name="robotTests" source="C:\kurssit\ohjelmistotuotanto\miniprojekti\TEKA3003-miniprojekti\src\robotTests">
+<suite id="s1-s1" name="Main" source="C:\kurssit\ohjelmistotuotanto\miniprojekti\TEKA3003-miniprojekti\src\robotTests\main.robot">
+<test id="s1-s1-t1" name="ViiteRepository New Command Test" line="5">
 <kw name="Input New Command" owner="resource">
 <kw name="Input" owner="mainLibrary">
 <arg>new</arg>
-<status status="PASS" start="2025-12-01T12:56:23.238435" elapsed="0.001646"/>
+<status status="PASS" start="2025-12-05T10:15:05.451017" elapsed="1.929527"/>
 </kw>
-<status status="PASS" start="2025-12-01T12:56:23.237248" elapsed="0.003108"/>
+<status status="PASS" start="2025-12-05T10:15:05.450499" elapsed="1.930629"/>
 </kw>
 <kw name="Input Book" owner="mainLibrary">
-<msg time="2025-12-01T12:56:23.241628" level="INFO">${result} = Luotu: @book{key1,
+<msg time="2025-12-05T10:15:07.381441" level="INFO">${result} = Luotu: @book{key1,
     author = {Matti Meikäläinen},
     title = {Testikirja},
     year = {2020},
@@ -21,46 +22,48 @@
 <arg>Testikirja</arg>
 <arg>2020</arg>
 <arg>Testikustantaja</arg>
-<status status="PASS" start="2025-12-01T12:56:23.241047" elapsed="0.000670"/>
+<status status="PASS" start="2025-12-05T10:15:07.381262" elapsed="0.000206"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.242237" elapsed="0.000701"/>
+<status status="PASS" start="2025-12-05T10:15:07.381542" elapsed="0.000148"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>Luotu: @book{key1,</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.243347" elapsed="0.000327"/>
+<status status="PASS" start="2025-12-05T10:15:07.381756" elapsed="0.000097"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>author = {Matti Meikäläinen},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.244022" elapsed="0.000319"/>
+<status status="PASS" start="2025-12-05T10:15:07.381919" elapsed="0.000109"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>title = {Testikirja},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.244677" elapsed="0.000307"/>
+<status status="PASS" start="2025-12-05T10:15:07.382099" elapsed="0.000113"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>year = {2020},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.245340" elapsed="0.000300"/>
+<status status="PASS" start="2025-12-05T10:15:07.382267" elapsed="0.000093"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>publisher = {Testikustantaja},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="PASS" start="2025-12-01T12:56:23.245986" elapsed="0.000290"/>
+<status status="PASS" start="2025-12-05T10:15:07.382420" elapsed="0.000076"/>
 </kw>
-<status status="PASS" start="2025-12-01T12:56:23.235477" elapsed="0.011168"/>
+<status status="PASS" start="2025-12-05T10:15:05.449799" elapsed="1.932778"/>
 </test>
-<status status="PASS" start="2025-12-01T12:56:23.153297" elapsed="0.094623"/>
+<status status="PASS" start="2025-12-05T10:15:03.175810" elapsed="4.208157"/>
+</suite>
+<status status="PASS" start="2025-12-05T10:15:03.015484" elapsed="4.368806"/>
 </suite>
 <statistics>
 <total>
@@ -69,9 +72,12 @@
 <tag>
 </tag>
 <suite>
-<stat name="Main" id="s1" pass="1" fail="0" skip="0">Main</stat>
+<stat name="robotTests" id="s1" pass="1" fail="0" skip="0">robotTests</stat>
+<stat name="Main" id="s1-s1" pass="1" fail="0" skip="0">robotTests.Main</stat>
 </suite>
 </statistics>
 <errors>
+<msg time="2025-12-05T10:15:04.578342" level="WARN">Unable to refresh access token without                 refresh token and app key</msg>
+<msg time="2025-12-05T10:15:06.531489" level="WARN">Unable to refresh access token without                 refresh token and app key</msg>
 </errors>
 </robot>

@@ -1,11 +1,29 @@
-from viite import Viite
-from pathlib import Path
+import os
 import json
+from pathlib import Path
 import requests
+import dropbox
+from dropbox.files import WriteMode
+from dropbox.exceptions import ApiError
+from dotenv import load_dotenv
+from viite import Viite
+
+load_dotenv()
+DROPBOX_TOKEN = os.getenv("DROPBOX_TOKEN")
 
 class ViiteRepository:
     def __init__(self, data_file_name="viitteet.json"):
         self.data_file_name = data_file_name
+
+        self.dbx = dropbox.Dropbox(DROPBOX_TOKEN)
+        self.dropbox_path = f"/{data_file_name}"
+        try:
+            self.lataaDropboxista()
+            print("Viitteet ladattu Dropboxista.")
+        except Exception as e:
+            print(f"Virhe: {e}. \n Käytetään paikallista tallennusta")
+            
+
         self.viitteet = self.lataaViitteetTiedostosta()
 
 
@@ -31,7 +49,7 @@ class ViiteRepository:
 
         if komento == "peruuta":
             return
-
+    
 
     def luoViiteInproceedings(self):
         key = input("Anna viitteen avain\n"); print()
@@ -179,3 +197,32 @@ class ViiteRepository:
 
         uusiViite = Viite.fromDictionary(viiteData)
         print(str(uusiViite))
+
+
+    #
+
+    def lataaDropboxista(self):
+        if not self.dbx:
+            return
+        try:
+            self.dbx.files_download_to_file(self.data_file_name, self.dropbox_path)
+            print("Lataus Dropboxista onnistui.")
+        except ApiError as e:
+            if e.error.is_path() and e.error.get_path().is_not_found():
+                print("Tiedostoa ei löytynyt Dropboxista. Käytetään paikallista.\n")
+            else:
+                print(f"Virhe ladattaessa Dropboxista: {e}\n")
+
+
+    def tallennaDropboxiin(self):
+        print(f"Tallennetaan {self.data_file_name} Dropboxiin.")
+        try:
+            with open(self.data_file_name, "rb") as f:
+                self.dbx.files_upload(
+                    f.read(),
+                    self.dropbox_path,
+                    mode=WriteMode('overwrite')
+                )
+            print("Tallennus Dropboxiin onnistui.\n")
+        except Exception as e:
+            print(f"Virhe tallennettaessa Dropboxiin: {e}\n")

@@ -89,10 +89,10 @@ class TestMain(unittest.TestCase):
 
             output = mock_stdout.getvalue()
 
-            self.assertIn("Tama on kayttoliittymasovellus viitteiden hallintaan bibtex muodossa", output)
+            self.assertIn("Tämä on käyttöliittymäsovellus viitteiden hallintaan bibtex muodossa", output)
             self.assertIn("Mahdolliset komennot:", output)
-            self.assertIn("New: Lisaa uusi viite", output)
-            self.assertIn("Quit: Tallenna ja päätä ohjelman käyttö", output)
+            self.assertIn("  New:     Lisää uusi viite", output)
+            self.assertIn("  Print:   Tulosta tallennetut viitteet", output)
 
 
     def test_hae_response(self):
