@@ -139,12 +139,12 @@ class ViiteRepository:
                 ]
         tyyppi = ""
         while tyyppi not in tyypit:
-            tyyppi = input("Anna haku tyyppi esim. author\n"); print()
-        hakusana = input("Anna hakusana\n"); print()
+            tyyppi = input("Anna haku tyyppi esim. author\n").strip().lower(); print()
+        hakusana = input("Anna hakusana\n").strip().lower(); print()
 
         print("Löydetyt viitteet:\n")
         for viite in self.viitteet:
-            attribute_value = getattr(viite, tyyppi)
+            attribute_value = getattr(viite, tyyppi).strip().lower()
             if hakusana in attribute_value:
                 print(str(viite))
                 print("--------------------------------------------------------------------")
