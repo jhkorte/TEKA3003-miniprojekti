@@ -26,6 +26,8 @@ jobs:
         
       - name: Run tests
         run: poetry run coverage run --branch -m pytest
+        env:
+          DROPBOX_TOKEN: ${{ secrets.DROPBOX_TOKEN }}
 
 
       - name: Coverage report
