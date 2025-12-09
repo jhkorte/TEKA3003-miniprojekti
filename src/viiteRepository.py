@@ -72,7 +72,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
-
+        return uusi_viite
 
 
     def luoViiteArticle(self):
@@ -87,7 +87,7 @@ class ViiteRepository:
         print("Luotu:")
         print(uusi_viite); print()
         self.viitteet.append(uusi_viite)
-
+        return uusi_viite
 
 
 
@@ -208,7 +208,7 @@ class ViiteRepository:
 
         uusiViite = Viite.fromDictionary(viiteData)
         print(str(uusiViite))
-
+        return uusiViite
 
     #
 
@@ -218,11 +218,14 @@ class ViiteRepository:
         try:
             self.dbx.files_download_to_file(self.data_file_name, self.dropbox_path)
             print("Lataus Dropboxista onnistui.")
+            return True
         except ApiError as e:
             if e.error.is_path() and e.error.get_path().is_not_found():
                 print("Tiedostoa ei löytynyt Dropboxista. Käytetään paikallista.\n")
+                return False
             else:
                 print(f"Virhe ladattaessa Dropboxista: {e}\n")
+                return False
 
 
     def tallennaDropboxiin(self):
@@ -235,5 +238,7 @@ class ViiteRepository:
                     mode=WriteMode('overwrite')
                 )
             print("Tallennus Dropboxiin onnistui.\n")
+            return True
         except Exception as e:
             print(f"Virhe tallennettaessa Dropboxiin: {e}\n")
+            return False
