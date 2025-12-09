@@ -34,11 +34,13 @@ def main():
         # Tallennetaan ja poistutaan ohjelmasta
         if response == "quit":
             repo.tallennaViitteetJsoniin()
+            repo.tallennaDropboxiin()
             break
 
         # Luo uuden DOI viitten
         if response == "doi":
-            repo.tallennaViiteDoi()
+            uusiViite = repo.tallennaViiteDoi()
+            repo.viitteet.append(uusiViite)
             repo.tallennaViitteetJsoniin()
 
         # Luo uuden viitten
