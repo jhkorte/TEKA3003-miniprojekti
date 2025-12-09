@@ -82,5 +82,65 @@
         "volume": null,
         "pages": null,
         "publisher": null
+    },
+    {
+        "entryType": "Inproceedings",
+        "key": "hertz2005garbage",
+        "author": "Hertz, Matthew and Feng, Yi and Berger, Emery D",
+        "year": "2005",
+        "title": "Garbage collection without paging",
+        "booktitle": "Proceedings of the 2005 ACM SIGPLAN conference on Programming language design and implementation",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
+    },
+    {
+        "entryType": "article",
+        "key": "ghanavati2020memory",
+        "author": "Ghanavati, Mohammadreza and Costa, Diego and Seboek, Janos and Lo, David and Andrzejak, Artur",
+        "year": "2020",
+        "title": "Memory and resource leak defects and their repairs in Java projects",
+        "booktitle": null,
+        "journal": "Empirical Software Engineering",
+        "volume": "25",
+        "pages": "678--718",
+        "publisher": null
+    },
+    {
+        "entryType": "book",
+        "key": "AMA11thEdition",
+        "author": "Prudhomme G",
+        "year": "2020",
+        "title": "Java Programming Applications. Arcler Press; 2020",
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "American Medical Assoc."
+    },
+    {
+        "entryType": "article",
+        "key": "karkory2013implementation",
+        "author": "Karkory, Fatma A and Abudalmola, Ali A",
+        "year": "2013",
+        "title": "Implementation of heuristics for solving travelling salesman problem using nearest neighbour and minimum spanning tree algorithms",
+        "booktitle": null,
+        "journal": "International Journal of Computer and Information Engineering",
+        "volume": "7",
+        "pages": "524--1534",
+        "publisher": null
+    },
+    {
+        "entryType": "Inproceedings",
+        "key": "zhao2021flashbyte",
+        "author": "Zhao, Junxian and Pi, Aidi and Wang, Shaoqi and Zhou, Xiaobo",
+        "year": "2021",
+        "title": "Flashbyte: Improving memory efficiency with lightweight native storage",
+        "booktitle": "2021 IEEE/ACM 21st International Symposium on Cluster, Cloud and Internet Computing (CCGrid)",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
     }
 ]
