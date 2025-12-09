@@ -31,10 +31,12 @@ def main():
 
         if response == "quit":
             repo.tallennaViitteetJsoniin()
+            repo.tallennaDropboxiin()
             break
 
         if response == "doi":
-            repo.tallennaViiteDoi()
+            uusiViite = repo.tallennaViiteDoi()
+            repo.viitteet.append(uusiViite)
             repo.tallennaViitteetJsoniin()
 
         if response == "new":

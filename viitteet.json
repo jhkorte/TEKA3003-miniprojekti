@@ -82,5 +82,19 @@
         "volume": null,
         "pages": null,
         "publisher": null
+    },
+    {
+        "entryType": "journal-article",
+        "key": "Aspelmeyer2009",
+        "author": "Aspelmeyer, Markus",
+        "year": 2009,
+        "title": [
+            "Measured measurement"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "5",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
     }
 ]
