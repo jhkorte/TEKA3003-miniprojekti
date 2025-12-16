@@ -277,3 +277,89 @@ def test_viitteenLuontiKysely_peruuta(monkeypatch):
     assert repo.luoViiteArticle.call_count == 0
     assert repo.luoViiteBook.call_count == 0
     assert repo.luoViiteInproceedings.call_count == 0
+
+
+def _repo_ilman_dropboxia(monkeypatch):
+    monkeypatch.setattr("viiteRepository.os.getenv", lambda name: None)
+    monkeypatch.setattr(ViiteRepository, "lataaViitteetTiedostosta", lambda self: [])
+
+    repo = ViiteRepository()
+    return repo
+
+
+def test_lataaDropboxista_onnistuu(monkeypatch, tmp_path):
+    repo = _repo_ilman_dropboxia(monkeypatch)
+
+    data_file = tmp_path / "viitteet.json"
+    data_file.write_text("[]")
+    repo.data_file_name = str(data_file)
+
+    repo.dbx = Mock()
+    repo.dbx.files_download_to_file.return_value = None
+
+    result = repo.lataaDropboxista()
+
+    repo.dbx.files_download_to_file.assert_called_once_with(
+        repo.data_file_name,
+        repo.dropbox_path
+    )
+    assert result is True
+
+
+def test_lataaDropboxista_ei_dbx(monkeypatch):
+    repo = _repo_ilman_dropboxia(monkeypatch)
+    repo.dbx = None
+    result = repo.lataaDropboxista()
+    assert result is None
+
+
+def test_lataaDropboxista_tiedostoa_ei_loydy(monkeypatch, tmp_path):
+    repo = _repo_ilman_dropboxia(monkeypatch)
+    repo.dbx = Mock()
+
+    data_file = tmp_path / "viitteet.json"
+    data_file.write_text("[]")
+    repo.data_file_name = str(data_file)
+
+    class FakePath:
+        def is_not_found(self):
+            return True
+
+    class FakeError:
+        def is_path(self):
+            return True
+
+        def get_path(self):
+            return FakePath()
+
+    class FakeApiError(Exception):
+        def __init__(self, error):
+            self.error = error
+    
+    monkeypatch.setattr("viiteRepository.ApiError", FakeApiError)
+    repo.dbx.files_download_to_file.side_effect = FakeApiError(FakeError())
+    result = repo.lataaDropboxista()
+    assert result is False
+
+
+def test_lataaDropboxista_muu_virhe(monkeypatch, tmp_path):
+    repo = _repo_ilman_dropboxia(monkeypatch)
+
+    data_file = tmp_path / "viitteet.json"
+    data_file.write_text("[]")
+    repo.data_file_name = str(data_file)
+
+    repo.dbx = Mock()
+
+    class FakeNonPathError:
+        def is_path(self):
+            return False
+
+    class FakeApiError(Exception):
+        def __init__(self, error):
+            self.error = error
+
+    monkeypatch.setattr("viiteRepository.ApiError", FakeApiError)
+    repo.dbx.files_download_to_file.side_effect = FakeApiError(FakeNonPathError())
+    result = repo.lataaDropboxista()
+    assert result is False
