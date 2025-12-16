@@ -34,11 +34,11 @@ curl https://api.dropbox.com/oauth2/token \
     -d client_secret=<YOUR_APP_SECRET>
 
 Kopioi saamasi refresh token.
-
 Luo projektin pääkansioon tiedosto .env ja lisää sisälle:
-DROPBOX_APP_KEY=koodi tähän
-DROPBOX_APP_SECRET=koodi tähän
-DROPBOX_REFRESH_TOKEN=koodi tähän
+DROPBOX_APP_KEY=KOODI
+DROPBOX_APP_SECRET=KOODI
+DROPBOX_REFRESH_TOKEN=KOODI
+
 ---------------------------------------
 
 # Definition of done
