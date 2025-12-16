@@ -12,11 +12,13 @@ load_dotenv()
 DROPBOX_TOKEN = os.getenv("DROPBOX_TOKEN")
 
 class ViiteRepository:
-    def __init__(self, data_file_name="robotViitteet.json"):
+    def __init__(self, data_file_name="viitteet.json"):
         self.data_file_name = data_file_name
         self.dropbox_path = f"/{data_file_name}"
         self.dbx = None
 
+        # Nämä kolme muuttujaa tarvitaan Dropboxia varten
+        # Tiedot haetaan ympäristömuuttujasta, sitä ei laiteta gittiin
         app_key = os.getenv("DROPBOX_APP_KEY")
         app_secret = os.getenv("DROPBOX_APP_SECRET")
         refresh_token = os.getenv("DROPBOX_REFRESH_TOKEN")
@@ -37,7 +39,9 @@ class ViiteRepository:
 
         self.viitteet = self.lataaViitteetTiedostosta()
 
-
+    # Luo viitteen käyttäjän antamien tietojen perusteella
+    # Käyttäjälle tulostetaan viitteen tyypit, joista käyttäjä valitsee haluamansa tyypin
+    # Valitun tyypin mukaan loudaan oikeanlainen viite
     def viitteenLuontiKysely(self):
         print("Valitse viitteen tyyppi: inproceedings, article, book")
         print("Palaa takaisin komennolla: peruuta")
@@ -61,7 +65,7 @@ class ViiteRepository:
         if komento == "peruuta":
             return
 
-
+    # Määritelee ja luo konferenssipuheen julkaisun tai kokoelman viitteen
     def luoViiteInproceedings(self):
         key = input("Anna viitteen avain\n"); print()
         author = input("Anna authorit\n"); print()
@@ -74,7 +78,7 @@ class ViiteRepository:
         self.viitteet.append(uusi_viite)
         return uusi_viite
 
-
+    # Määritelee ja luo artikkelin viitteen
     def luoViiteArticle(self):
         key = input("Anna viitteen avain\n"); print()
         author = input("Anna authorit\n"); print()
@@ -90,7 +94,7 @@ class ViiteRepository:
         return uusi_viite
 
 
-
+    # Määritelee ja luo kirjan viitteen
     def luoViiteBook(self):
         key = input("Anna viitteen avain\n"); print()
         author = input("Anna author\n"); print()
@@ -104,7 +108,7 @@ class ViiteRepository:
         return uusi_viite
 
 
-
+    # Tulostaa viitteet, jos niitä on
     def tulostaViitteetListasta(self):
         if len(self.viitteet) < 1:
             print("Ei tallennettuja viitteitä"); print()
@@ -114,14 +118,14 @@ class ViiteRepository:
         for viite in self.viitteet:
             print(viite)
 
-
+    # Tallentaa viitteet bib-tiedostoon
     def tallennaViitteetTiedostoon(self):
         with open("references.bib", "w") as f:
             for viite in self.viitteet:
                 f.write(str(viite))
                 f.write("\n")
 
-
+    # Tallentaa viitteet Json-tiedostoon
     def tallennaViitteetJsoniin(self):
         try:
             viite_dictionary = [viite.toDictionary() for viite in self.viitteet]
@@ -133,7 +137,7 @@ class ViiteRepository:
         except Exception as e:
             print(f"\nTallennus epäonnistui: {e}")
 
-
+    # Lataa viitteet json-tiedostosta
     def lataaViitteetTiedostosta(self):
         data_file = Path(self.data_file_name)
 
@@ -152,7 +156,7 @@ class ViiteRepository:
             print(f"Lataus epäonnistui: {e}")
             return []
 
-
+     # Määrittelee hakuun käyvät tagit ja hakee viitteen, käyttäjän syöttämän tagin (tyypin) ja  hakusanan perusteella
     def Filtteroi(self):
         tyypit = [
                 "entryType",
@@ -181,6 +185,8 @@ class ViiteRepository:
 
     #DOI API -rajapinta: https://www.doi.org/doi-handbook/HTML/doi-rest-api.html
 
+    # Tallentaa uuden viitteen doi -osoitteen perusteella
+    # Käyttäjältä kysytään doi jonka jälkeen viitteen tiedot haetaan
     def tallennaViiteDoi(self):
         doi = input("Anna doi \n").strip().lower()
         url = f"https://api.crossref.org/works/{doi}"
@@ -210,8 +216,7 @@ class ViiteRepository:
         print(str(uusiViite))
         return uusiViite
 
-    #
-
+    # Lataa Dropboxiin tallennetut viitteet
     def lataaDropboxista(self):
         if not self.dbx:
             return
@@ -227,7 +232,7 @@ class ViiteRepository:
                 print(f"Virhe ladattaessa Dropboxista: {e}\n")
                 return False
 
-
+    # Tallentaa viitteet Dropboxiin
     def tallennaDropboxiin(self):
         print(f"Tallennetaan {self.data_file_name} Dropboxiin.")
         try:
