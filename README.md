@@ -18,7 +18,29 @@ poetry shell
 python src/main.py
 
 ```
+# Dropbox konfiguraatio
+Luo ensiksi dropboxiin appi DBX Platformiin.
 
+Kopioi selaimeen, lisää app-key dropboxin hallinnasta:
+https://www.dropbox.com/oauth2/authorize?client_id=<APP_KEY>&response_type=code&token_access_type=offline
+
+Kopioi code= kohdan jälkeen oleva authorization code.
+
+Komentolinjalla suorita:
+```bash
+curl https://api.dropbox.com/oauth2/token \
+    -d code=<YOUR_AUTHORIZATION_CODE> \
+    -d grant_type=authorization_code \
+    -d client_id=<YOUR_APP_KEY> \
+    -d client_secret=<YOUR_APP_SECRET>
+```
+Kopioi saamasi refresh token.
+Luo projektin pääkansioon tiedosto .env ja lisää sisälle:
+```bash
+DROPBOX_APP_KEY=KOODI
+DROPBOX_APP_SECRET=KOODI
+DROPBOX_REFRESH_TOKEN=KOODI
+```
 ---------------------------------------
 
 # Definition of done
