@@ -5,9 +5,9 @@ Library  Collections
 Library  OperatingSystem
 
 *** Variables ***
-${DROPBOX_APP_KEY}  zibp4mktr3ptkvc
-${DROPBOX_APP_SECRET}  52pj9bzbt0ulb7l
-${DROPBOX_REFRESH_TOKEN}  qsGeW1E_JfEAAAAAAAAAARmDvqCaJ3GkYGfZH1HlvQ8Vv3fe_FfIiG6gEBhDDTJ9
+${DROPBOX_APP_KEY}  %{DROPBOX_APP_KEY=None}
+${DROPBOX_APP_SECRET}  %{DROPBOX_APP_SECRET=None}
+${DROPBOX_REFRESH_TOKEN}  %{DROPBOX_REFRESH_TOKEN=None}
 
 ${DROPBOX_FILE_PATH}  /robot.json
 ${LOCAL_DOWNLOAD_PATH}  ${OUTPUT_DIR}${/}downloaded_robot.json
