@@ -12,7 +12,7 @@ load_dotenv()
 DROPBOX_TOKEN = os.getenv("DROPBOX_TOKEN")
 
 class ViiteRepository:
-    def __init__(self, data_file_name="viitteet.json"):
+    def __init__(self, data_file_name="robotViitteet.json"):
         self.data_file_name = data_file_name
         self.dropbox_path = f"/{data_file_name}"
         self.dbx = None
@@ -60,7 +60,7 @@ class ViiteRepository:
 
         if komento == "peruuta":
             return
-    
+
 
     def luoViiteInproceedings(self):
         key = input("Anna viitteen avain\n"); print()

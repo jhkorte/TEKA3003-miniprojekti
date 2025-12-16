@@ -82,43 +82,5 @@
         "volume": null,
         "pages": null,
         "publisher": null
-    },
-    {
-        "entryType": "journal-article",
-        "key": "Aspelmeyer2009",
-        "author": "Aspelmeyer, Markus",
-        "year": 2009,
-        "title": [
-            "Measured measurement"
-        ],
-        "booktitle": null,
-        "journal": null,
-        "volume": "5",
-        "pages": null,
-        "publisher": "Springer Science and Business Media LLC"
-    },
-    {
-        "entryType": "book",
-        "key": "CPROG",
-        "author": "Kernighan, Brian",
-        "year": "1988",
-        "title": "The C Programming Language, 2nd edition",
-        "booktitle": null,
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": "Pearson"
-    },
-    {
-        "entryType": "Inproceedings",
-        "key": "avain",
-        "author": "Jon",
-        "year": "2025",
-        "title": "otsikko",
-        "booktitle": "kirjaotsikko",
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": null
     }
 ]

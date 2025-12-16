@@ -1,88 +1,272 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-12-04T14:26:01.623403" rpa="false" schemaversion="5">
-<suite id="s1" name="robotTests" source="C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\src\robotTests">
-<suite id="s1-s1" name="Main" source="C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\src\robotTests\main.robot">
-<test id="s1-s1-t1" name="ViiteRepository New Command Test" line="5">
+<robot generator="Robot 7.3.2 (Python 3.14.0 on win32)" generated="2025-12-16T10:49:02.975178" rpa="false" schemaversion="5">
+<suite id="s1" name="robotTests" source="C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\robotTests">
+<suite id="s1-s1" name="dropBox" source="C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\robotTests\dropBox.robot">
+<test id="s1-s1-t1" name="As A User I Can Sync Files Between Computers" line="16">
+<kw name="Get Fresh Access Token">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-16T10:49:06.745398" level="INFO">${data} = {'grant_type': 'refresh_token', 'refresh_token': 'qsGeW1E_JfEAAAAAAAAAARmDvqCaJ3GkYGfZH1HlvQ8Vv3fe_FfIiG6gEBhDDTJ9', 'client_id': 'zibp4mktr3ptkvc', 'client_secret': '52pj9bzbt0ulb7l'}</msg>
+<var>${data}</var>
+<arg>grant_type=refresh_token</arg>
+<arg>refresh_token=${DROPBOX_REFRESH_TOKEN}</arg>
+<arg>client_id=${DROPBOX_APP_KEY}</arg>
+<arg>client_secret=${DROPBOX_APP_SECRET}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-16T10:49:06.744664" elapsed="0.000816"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-12-16T10:49:07.849103" level="INFO">POST Request : url=https://api.dropbox.com/oauth2/token 
+ path_url=/oauth2/token 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Content-Length': '159', 'Content-Type': 'application/x-www-form-urlencoded'} 
+ body=grant_type=refresh_token&amp;refresh_token=qsGeW1E_JfEAAAAAAAAAARmDvqCaJ3GkYGfZH1HlvQ8Vv3fe_FfIiG6gEBhDDTJ9&amp;client_id=zibp4mktr3ptkvc&amp;client_secret=52pj9bzbt0ulb7l 
+ </msg>
+<msg time="2025-12-16T10:49:07.849371" level="INFO">POST Response : url=https://api.dropbox.com/oauth2/token 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/json', 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Expires': '0', 'Pragma': 'no-cache', 'X-Content-Type-Options': 'nosniff', 'X-Frame-Options': 'SAMEORIGIN', 'X-Server-Response-Time': '57', 'Date': 'Tue, 16 Dec 2025 08:49:07 GMT', 'Server': 'envoy', 'Content-Encoding': 'gzip', 'Vary': 'Accept-Encoding', 'X-Dropbox-Response-Origin': 'far_remote', 'X-Dropbox-Request-Id': 'fd39fa0a75b645489e7d6a9269411d03', 'Transfer-Encoding': 'chunked'} 
+ body={"access_token": "sl.u.AGKLdWghqG0tv66TsGec1FiGlcKpkjrqSgKExFnAEqU9uxmB-CCkVj74m7kJ2rHbcYm_VFCP-02RZaX9LgXWp2nNwC_NCUQ631T8f6jlfRh-xImO1qq0R7bQwXjSX8NqVinK9mstl49XwCF0ExDyLS1Kov77jP5nrdTrJG324xkdEAutsFv0fiHz7pd5tbeFf7Mw4E8PTpL8HjfPVqIqCzJ9ndXwMboNuxbVlA5_mVth5TorVx2cPoMOBBZdq9U8O2o9GlgELW1aAR9EQ_so3tbno2Fbdl453h3q8QJE42wR1dkpx0IIFIgXjwqSf4HGdY_7Ys2IMVrrA7_0qyfJCu4a0lmFmsyon8imFunn3J2t0u9cIKWjv6VX44kv3p_MtHGb-AzTrAaruq-PhLtxSLShlg45p47Gq-WSiEV9RrLaduOXHhdyhPynnM-7jWtKfQT9SVlNUqJ4TzLtauRpAwIDXdcGM5xUE-vT0p3idA4_k7jDD_3VmIFuugZwR8Pmc5HSe_eE7pysjpYuPYBYhwxhvrgJ98uRzoZ_WK7aA3y2nHXyiyEaDvs8CfuCahqFVhRByjq7Tzihx5QlSWA1fCmDs4uuleBs91BiZJBZqJUr0y2lDYL180OzgWUJ8ZPWiZmHPMV1CIW-SKYj20AOlEq78blPWOIAt8cpWDS-i4LAtNyVGn5sslkiTDYTV--95NhR5l48LTasWfEAQU97afRcM4asXhz69Z2iv9AEgNf5Tiy_-3OAfXLrjK3BBsbXJBgl0nCSB5kT2NkRvzaGfDybmB5eF5Y-OHhyf8bz4OiD6sAb2febMC896HU83ZcJsMl2pSScFbwW1kZro8i8w2r4vn5EcnBGjJyLLc1rjvpHVOXVKeUGu5fioQ6cbH-Ixd2BKNlH0FtF4_l17cDBzw9RuUh0IwqKkKDggW-10HxwDPkLQBWm1_ZVcNhNTLkhVFKeLwx54peyZwKS-h8O5HDbVbT-9DJ7FRhcRm3ET7tzN-bogCZUHLlW5lnv_4LV3OgXiKdyIEvkFiHoqEmHFRgYluMHzPNtMMxemVnBnK2paVNNXks9MWTut2miaKQZkcZ-Wl5d69JFfCP7jDDrx06KP0E_bwFgETGCrxsozNCbG6KiuBVYFLe_TgFNfTLxlKLq_yKUsbPpfGf8VCkwjqC9-m0A55oG5Yg-d0Nm9YofA_xVLPHQPQlCUTW_XxomwdzkyLyp--S9dSj6vsp9Yce0zk45inlrtG-jgfJbE7gn4XBK3Ojj8jAxxzNByD3qbEWd1xKVNcjkqUf4GI-j-T7S7dgM-hlMPpYzQYuAUFRsHJ5XZvl6BrWPFrrMpocl9ILbQbppwJHsaMeVD7IO9tyFwYfKeNyCVnSH9etltretrlZuLOErczaPHJAuTJ4zTc8CRwHha5V2E2hyqGC3Ynu1YUboqpsi2SDAjM6gGsXzNw", "token_type": "bearer", "expires_in": 14400} 
+ </msg>
+<msg time="2025-12-16T10:49:07.849862" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://api.dropbox.com/oauth2/token</arg>
+<arg>data=${data}</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-12-16T10:49:06.745736" elapsed="1.104212"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<msg time="2025-12-16T10:49:07.851697" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<arg>${response.status_code}</arg>
+<arg>200</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2025-12-16T10:49:07.850368" elapsed="0.001513"/>
+</kw>
+<kw name="Set Variable" owner="BuiltIn">
+<msg time="2025-12-16T10:49:07.853658" level="INFO">${token} = sl.u.AGKLdWghqG0tv66TsGec1FiGlcKpkjrqSgKExFnAEqU9uxmB-CCkVj74m7kJ2rHbcYm_VFCP-02RZaX9LgXWp2nNwC_NCUQ631T8f6jlfRh-xImO1qq0R7bQwXjSX8NqVinK9mstl49XwCF0ExDyLS1Kov77jP5nrdTrJG324xkdEAutsFv0fiHz7pd5tbeFf7M...</msg>
+<var>${token}</var>
+<arg>${response.json()}[access_token]</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" start="2025-12-16T10:49:07.852179" elapsed="0.001592"/>
+</kw>
+<return>
+<value>${token}</value>
+<status status="PASS" start="2025-12-16T10:49:07.853936" elapsed="0.000135"/>
+</return>
+<msg time="2025-12-16T10:49:07.854453" level="INFO">${access_token} = sl.u.AGKLdWghqG0tv66TsGec1FiGlcKpkjrqSgKExFnAEqU9uxmB-CCkVj74m7kJ2rHbcYm_VFCP-02RZaX9LgXWp2nNwC_NCUQ631T8f6jlfRh-xImO1qq0R7bQwXjSX8NqVinK9mstl49XwCF0ExDyLS1Kov77jP5nrdTrJG324xkdEAutsFv0fiHz7pd5tbeFf7M...</msg>
+<var>${access_token}</var>
+<doc>Exchanges the Refresh Token for a short-lived Access Token</doc>
+<status status="PASS" start="2025-12-16T10:49:06.743312" elapsed="1.111216"/>
+</kw>
+<kw name="Download Dropbox File">
+<kw name="Create Dictionary" owner="BuiltIn">
+<msg time="2025-12-16T10:49:07.857614" level="INFO">${headers} = {'Authorization': 'Bearer sl.u.AGKLdWghqG0tv66TsGec1FiGlcKpkjrqSgKExFnAEqU9uxmB-CCkVj74m7kJ2rHbcYm_VFCP-02RZaX9LgXWp2nNwC_NCUQ631T8f6jlfRh-xImO1qq0R7bQwXjSX8NqVinK9mstl49XwCF0ExDyLS1Kov77jP5nrdTrJG324...</msg>
+<var>${headers}</var>
+<arg>Authorization=Bearer ${token}</arg>
+<arg>Dropbox-API-Arg={"path": "${remote_path}"}</arg>
+<doc>Creates and returns a dictionary based on the given ``items``.</doc>
+<status status="PASS" start="2025-12-16T10:49:07.856855" elapsed="0.000836"/>
+</kw>
+<kw name="POST" owner="RequestsLibrary">
+<msg time="2025-12-16T10:49:10.444873" level="INFO">POST Request : url=https://content.dropboxapi.com/2/files/download 
+ path_url=/2/files/download 
+ headers={'User-Agent': 'python-requests/2.32.5', 'Accept-Encoding': 'gzip, deflate, zstd', 'Accept': '*/*', 'Connection': 'keep-alive', 'Authorization': 'Bearer sl.u.AGKLdWghqG0tv66TsGec1FiGlcKpkjrqSgKExFnAEqU9uxmB-CCkVj74m7kJ2rHbcYm_VFCP-02RZaX9LgXWp2nNwC_NCUQ631T8f6jlfRh-xImO1qq0R7bQwXjSX8NqVinK9mstl49XwCF0ExDyLS1Kov77jP5nrdTrJG324xkdEAutsFv0fiHz7pd5tbeFf7Mw4E8PTpL8HjfPVqIqCzJ9ndXwMboNuxbVlA5_mVth5TorVx2cPoMOBBZdq9U8O2o9GlgELW1aAR9EQ_so3tbno2Fbdl453h3q8QJE42wR1dkpx0IIFIgXjwqSf4HGdY_7Ys2IMVrrA7_0qyfJCu4a0lmFmsyon8imFunn3J2t0u9cIKWjv6VX44kv3p_MtHGb-AzTrAaruq-PhLtxSLShlg45p47Gq-WSiEV9RrLaduOXHhdyhPynnM-7jWtKfQT9SVlNUqJ4TzLtauRpAwIDXdcGM5xUE-vT0p3idA4_k7jDD_3VmIFuugZwR8Pmc5HSe_eE7pysjpYuPYBYhwxhvrgJ98uRzoZ_WK7aA3y2nHXyiyEaDvs8CfuCahqFVhRByjq7Tzihx5QlSWA1fCmDs4uuleBs91BiZJBZqJUr0y2lDYL180OzgWUJ8ZPWiZmHPMV1CIW-SKYj20AOlEq78blPWOIAt8cpWDS-i4LAtNyVGn5sslkiTDYTV--95NhR5l48LTasWfEAQU97afRcM4asXhz69Z2iv9AEgNf5Tiy_-3OAfXLrjK3BBsbXJBgl0nCSB5kT2NkRvzaGfDybmB5eF5Y-OHhyf8bz4OiD6sAb2febMC896HU83ZcJsMl2pSScFbwW1kZro8i8w2r4vn5EcnBGjJyLLc1rjvpHVOXVKeUGu5fioQ6cbH-Ixd2BKNlH0FtF4_l17cDBzw9RuUh0IwqKkKDggW-10HxwDPkLQBWm1_ZVcNhNTLkhVFKeLwx54peyZwKS-h8O5HDbVbT-9DJ7FRhcRm3ET7tzN-bogCZUHLlW5lnv_4LV3OgXiKdyIEvkFiHoqEmHFRgYluMHzPNtMMxemVnBnK2paVNNXks9MWTut2miaKQZkcZ-Wl5d69JFfCP7jDDrx06KP0E_bwFgETGCrxsozNCbG6KiuBVYFLe_TgFNfTLxlKLq_yKUsbPpfGf8VCkwjqC9-m0A55oG5Yg-d0Nm9YofA_xVLPHQPQlCUTW_XxomwdzkyLyp--S9dSj6vsp9Yce0zk45inlrtG-jgfJbE7gn4XBK3Ojj8jAxxzNByD3qbEWd1xKVNcjkqUf4GI-j-T7S7dgM-hlMPpYzQYuAUFRsHJ5XZvl6BrWPFrrMpocl9ILbQbppwJHsaMeVD7IO9tyFwYfKeNyCVnSH9etltretrlZuLOErczaPHJAuTJ4zTc8CRwHha5V2E2hyqGC3Ynu1YUboqpsi2SDAjM6gGsXzNw', 'Dropbox-API-Arg': '{"path": "/robot.json"}', 'Content-Length': '0'} 
+ body=None 
+ </msg>
+<msg time="2025-12-16T10:49:10.452567" level="INFO">POST Response : url=https://content.dropboxapi.com/2/files/download 
+ status=200, reason=OK 
+ headers={'Content-Type': 'application/octet-stream', 'Accept-Ranges': 'bytes', 'Cache-Control': 'no-cache', 'Dropbox-Api-Result': '{"name": "robot.json", "path_lower": "/robot.json", "path_display": "/robot.json", "id": "id:VEN2wKRP73MAAAAAAAAABw", "client_modified": "2025-12-16T08:40:54Z", "server_modified": "2025-12-16T08:41:05Z", "rev": "016460db03cdf90000000031a6d8863", "size": 308, "is_downloadable": true, "content_hash": "05b21310d2996e6f68d59d6e007f562d7673deb6ac7b20c560b7c1f11b56b6fb"}', 'Etag': 'W/"016460db03cdf90000000031a6d8863"', 'Original-Content-Length': '308', 'X-Server-Response-Time': '472', 'Date': 'Tue, 16 Dec 2025 08:49:09 GMT', 'Server': 'envoy', 'Strict-Transport-Security': 'max-age=31536000; includeSubDomains; preload', 'X-Robots-Tag': 'noindex, nofollow, noimageindex', 'Content-Length': '308', 'X-Dropbox-Response-Origin': 'far_remote', 'X-Dropbox-Request-Id': '32dea8972ddf4a75998be66f69411d04'} 
+ body=[
+    {
+            {
+        "entryType": "Inproceedings",
+        "key": "test",
+        "author": "test",
+        "year": "test",
+        "title": "test",
+        "booktitle": "test",
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": null
+    }
+]
+ 
+ </msg>
+<msg time="2025-12-16T10:49:10.453013" level="INFO">${response} = &lt;Response [200]&gt;</msg>
+<var>${response}</var>
+<arg>https://content.dropboxapi.com/2/files/download</arg>
+<arg>headers=${headers}</arg>
+<arg>headers=${headers}</arg>
+<arg>expected_status=any</arg>
+<doc>Sends a POST request.</doc>
+<status status="PASS" start="2025-12-16T10:49:07.857985" elapsed="2.595106"/>
+</kw>
+<kw name="Run Keyword If" owner="BuiltIn">
+<arg>${response.status_code} != 200</arg>
+<arg>Fail</arg>
+<arg>Dropbox Error: ${response.json()}</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.453511" elapsed="0.001351"/>
+</kw>
+<kw name="Create Binary File" owner="OperatingSystem">
+<msg time="2025-12-16T10:49:10.458338" level="INFO" html="true">Created binary file '&lt;a href="file://C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json"&gt;C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json&lt;/a&gt;'.</msg>
+<arg>${local_path}</arg>
+<arg>${response.content}</arg>
+<doc>Creates a binary file with the given content.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.455152" elapsed="0.003537"/>
+</kw>
+<kw name="Get File" owner="OperatingSystem">
+<msg time="2025-12-16T10:49:10.459905" level="INFO" html="true">Getting file '&lt;a href="file://C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json"&gt;C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json&lt;/a&gt;'.</msg>
+<msg time="2025-12-16T10:49:10.464056" level="INFO">${content} = [
+    {
+            {
+        "entryType": "Inproceedings",
+        "key": "test",
+        "author": "test",
+        "year": "test",
+        "title": "test",
+        "booktitle": "test",
+        "jour...</msg>
+<var>${content}</var>
+<arg>${LOCAL_DOWNLOAD_PATH}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.459265" elapsed="0.004907"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>{</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.464564" elapsed="0.000460"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>"entryType": "Inproceedings",</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.465293" elapsed="0.000326"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>"author": "test",</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.465912" elapsed="0.000519"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>"title": "test",</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.466844" elapsed="0.000534"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>"year": "test",</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.467774" elapsed="0.000367"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>"booktitle": "test",</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.468410" elapsed="0.000380"/>
+</kw>
+<kw name="Should Contain" owner="BuiltIn">
+<arg>${content}</arg>
+<arg>}</arg>
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.469142" elapsed="0.000360"/>
+</kw>
+<arg>${access_token}</arg>
+<arg>${DROPBOX_FILE_PATH}</arg>
+<arg>${LOCAL_DOWNLOAD_PATH}</arg>
+<doc>Downloads file using the Dropbox API "content" endpoint</doc>
+<status status="PASS" start="2025-12-16T10:49:07.855676" elapsed="2.614103"/>
+</kw>
+<kw name="File Should Exist" owner="OperatingSystem">
+<msg time="2025-12-16T10:49:10.471079" level="INFO" html="true">File '&lt;a href="file://C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json"&gt;C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\downloaded_robot.json&lt;/a&gt;' exists.</msg>
+<arg>${LOCAL_DOWNLOAD_PATH}</arg>
+<doc>Fails unless the given ``path`` points to an existing file.</doc>
+<status status="PASS" start="2025-12-16T10:49:10.470508" elapsed="0.000714"/>
+</kw>
+<doc>Tests downloading a file from Dropbox using OAuth2 token refresh flow</doc>
+<status status="PASS" start="2025-12-16T10:49:06.741720" elapsed="3.730114"/>
+</test>
+<status status="PASS" start="2025-12-16T10:49:03.060589" elapsed="7.413171"/>
+</suite>
+<suite id="s1-s2" name="Main" source="C:\ohjelmointi\projects\koulu\TEKA3003\TEKA3003-miniprojekti\src\robotTests\main.robot">
+<test id="s1-s2-t1" name="ViiteRepository New Command Test" line="5">
 <kw name="Input New Command" owner="resource">
-<kw name="Input">
-<msg time="2025-12-04T14:26:01.803857" level="FAIL">No keyword with name 'Input' found.</msg>
+<kw name="Input" owner="mainLibrary">
 <arg>new</arg>
-<status status="FAIL" start="2025-12-04T14:26:01.803808" elapsed="0.000120">No keyword with name 'Input' found.</status>
+<status status="PASS" start="2025-12-16T10:49:10.484483" elapsed="3.133552"/>
 </kw>
-<status status="FAIL" start="2025-12-04T14:26:01.802651" elapsed="0.001468">No keyword with name 'Input' found.</status>
+<status status="PASS" start="2025-12-16T10:49:10.483798" elapsed="3.134562"/>
 </kw>
-<kw name="Input Book">
+<kw name="Input Book" owner="mainLibrary">
+<msg time="2025-12-16T10:49:13.619600" level="INFO">${result} = Luotu: @book{key1,
+    author = {Matti Meikäläinen},
+    title = {Testikirja},
+    year = {2020},
+    publisher = {Testikustantaja},
+}</msg>
 <var>${result}</var>
 <arg>key1 Matti Meikäläinen</arg>
 <arg>Testikirja</arg>
 <arg>2020</arg>
 <arg>Testikustantaja</arg>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804268" elapsed="0.000025"/>
+<status status="PASS" start="2025-12-16T10:49:13.619103" elapsed="0.000586"/>
 </kw>
 <kw name="Log To Console" owner="BuiltIn">
 <arg>${result}</arg>
 <doc>Logs the given message to the console.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804419" elapsed="0.000026"/>
+<status status="PASS" start="2025-12-16T10:49:13.620199" elapsed="0.000680"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>Luotu: @book{key1,</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804559" elapsed="0.000024"/>
+<status status="PASS" start="2025-12-16T10:49:13.621372" elapsed="0.000412"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>author = {Matti Meikäläinen},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804675" elapsed="0.000021"/>
+<status status="PASS" start="2025-12-16T10:49:13.622243" elapsed="0.000368"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>title = {Testikirja},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804781" elapsed="0.000019"/>
+<status status="PASS" start="2025-12-16T10:49:13.623055" elapsed="0.000353"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>year = {2020},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804881" elapsed="0.000020"/>
+<status status="PASS" start="2025-12-16T10:49:13.623925" elapsed="0.000353"/>
 </kw>
 <kw name="Should Contain" owner="BuiltIn">
 <arg>${result}</arg>
 <arg>publisher = {Testikustantaja},</arg>
 <doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
-<status status="NOT RUN" start="2025-12-04T14:26:01.804982" elapsed="0.000018"/>
+<status status="PASS" start="2025-12-16T10:49:13.624721" elapsed="0.000346"/>
 </kw>
-<status status="FAIL" start="2025-12-04T14:26:01.801666" elapsed="0.003494">No keyword with name 'Input' found.</status>
+<status status="PASS" start="2025-12-16T10:49:10.481975" elapsed="3.143596"/>
 </test>
-<status status="FAIL" start="2025-12-04T14:26:01.795638" elapsed="0.010054"/>
+<status status="PASS" start="2025-12-16T10:49:10.475903" elapsed="3.158943"/>
 </suite>
-<status status="FAIL" start="2025-12-04T14:26:01.625303" elapsed="0.181140"/>
+<status status="PASS" start="2025-12-16T10:49:02.984398" elapsed="10.652691"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat name="robotTests" id="s1" pass="0" fail="1" skip="0">robotTests</stat>
-<stat name="Main" id="s1-s1" pass="0" fail="1" skip="0">robotTests.Main</stat>
+<stat name="robotTests" id="s1" pass="2" fail="0" skip="0">robotTests</stat>
+<stat name="dropBox" id="s1-s1" pass="1" fail="0" skip="0">robotTests.dropBox</stat>
+<stat name="Main" id="s1-s2" pass="1" fail="0" skip="0">robotTests.Main</stat>
 </suite>
 </statistics>
 <errors>
-<msg time="2025-12-04T14:26:01.801043" level="ERROR">Error in file 'C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\src\robotTests\resource.robot' on line 2: Importing library 'C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\src\mainLibrary.py' failed: ModuleNotFoundError: No module named 'mainLibrary'
-Traceback (most recent call last):
-  None
-PYTHONPATH:
-  C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\src
-  C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\.venv\Scripts\robot.exe
-  C:\Users\jimik\AppData\Local\Programs\Python\Python314\python314.zip
-  C:\Users\jimik\AppData\Local\Programs\Python\Python314\DLLs
-  C:\Users\jimik\AppData\Local\Programs\Python\Python314\Lib
-  C:\Users\jimik\AppData\Local\Programs\Python\Python314
-  C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\.venv
-  C:\kurssit\ohtu-miniprojekti\TEKA3003-miniprojekti\.venv\Lib\site-packages</msg>
 </errors>
 </robot>
