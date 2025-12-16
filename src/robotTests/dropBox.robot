@@ -13,7 +13,7 @@ ${DROPBOX_FILE_PATH}  /robot.json
 ${LOCAL_DOWNLOAD_PATH}  ${OUTPUT_DIR}${/}downloaded_robot.json
 
 *** Test Cases ***
-As A User I Can Sync Files Between Computers
+Käyttäjänä voin synkronoida data eri koneiden välillä CLI-sovelluksessa
     [Documentation]    Tests downloading a file from Dropbox using OAuth2 token refresh flow
    ${access_token}=    Get Fresh Access Token
 

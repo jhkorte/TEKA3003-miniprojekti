@@ -1,0 +1,86 @@
+[
+    {
+        "entryType": "journal-article",
+        "key": "WATSON1953",
+        "author": "WATSON, J. D. and CRICK, F. H. C.",
+        "year": 1953,
+        "title": [
+            "Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "171",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
+    },
+    {
+        "entryType": "proceedings-article",
+        "key": "Feldmann1968",
+        "author": "Feldmann, Clarence G.",
+        "year": 1968,
+        "title": [
+            "Subsets and modular features of standard APT"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "ACM Press"
+    },
+    {
+        "entryType": "monograph",
+        "key": "Kuhn2012",
+        "author": "Kuhn, Thomas S. and Hacking, Ian",
+        "year": 2012,
+        "title": [
+            "The Structure of Scientific Revolutions"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "University of Chicago Press"
+    },
+    {
+        "entryType": "monograph",
+        "key": "Kuhn2012",
+        "author": "Kuhn, Thomas S. and Hacking, Ian",
+        "year": 2012,
+        "title": [
+            "The Structure of Scientific Revolutions"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": null,
+        "pages": null,
+        "publisher": "University of Chicago Press"
+    },
+    {
+        "entryType": "journal-article",
+        "key": "TURING1950",
+        "author": "TURING, A. M.",
+        "year": 1950,
+        "title": [
+            "I.\u2014COMPUTING MACHINERY AND INTELLIGENCE"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "LIX",
+        "pages": null,
+        "publisher": "Oxford University Press (OUP)"
+    },
+    {
+        "entryType": "journal-article",
+        "key": "WATSON1953",
+        "author": "WATSON, J. D. and CRICK, F. H. C.",
+        "year": 1953,
+        "title": [
+            "Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid"
+        ],
+        "booktitle": null,
+        "journal": null,
+        "volume": "171",
+        "pages": null,
+        "publisher": "Springer Science and Business Media LLC"
+    }
+]
