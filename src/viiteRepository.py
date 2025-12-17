@@ -191,7 +191,11 @@ class ViiteRepository:
         doi = input("Anna doi \n").strip().lower()
         url = f"https://api.crossref.org/works/{doi}"
 
+        response = None
         response = requests.get(url)
+        if not response:
+            print("Virheellinen doi")
+            return
         data = response.json()
         viiteData = data.get("message", {})
 

@@ -1,136 +1,58 @@
 [
     {
-        "entryType": "Inproceedings",
-        "key": "1",
-        "author": "1",
-        "year": "1",
-        "title": "1",
-        "booktitle": "1",
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": null
-    },
-    {
-        "entryType": "article",
-        "key": "1",
-        "author": "1",
-        "year": "1",
-        "title": "1",
-        "booktitle": null,
-        "journal": "1",
-        "volume": "1",
-        "pages": "1",
-        "publisher": null
-    },
-    {
-        "entryType": "book",
-        "key": "1",
-        "author": "1",
-        "year": "1",
-        "title": "1",
-        "booktitle": null,
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": "1"
-    },
-    {
-        "entryType": "article",
-        "key": "test",
-        "author": "test",
-        "year": "test",
-        "title": "test",
-        "booktitle": null,
-        "journal": "test",
-        "volume": "test",
-        "pages": "test",
-        "publisher": null
-    },
-    {
-        "entryType": "book",
-        "key": "dropboxtesti",
-        "author": "a",
-        "year": "a",
-        "title": "a",
-        "booktitle": null,
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": "a"
-    },
-    {
-        "entryType": "article",
-        "key": "dropboxtesti2",
-        "author": "a",
-        "year": "a",
-        "title": "a",
-        "booktitle": null,
-        "journal": "a",
-        "volume": "a",
-        "pages": "a",
-        "publisher": null
-    },
-    {
-        "entryType": "Inproceedings",
-        "key": "avain",
-        "author": "Jon",
-        "year": "2025",
-        "title": "otsikko",
-        "booktitle": "kirjaotsikko",
-        "journal": null,
-        "volume": null,
-        "pages": null,
-        "publisher": null
-    },
-    {
-        "entryType": "journal-article",
-        "key": "Aspelmeyer2009",
-        "author": "Aspelmeyer, Markus",
-        "year": 2009,
+        "entryType": "proceedings-article",
+        "key": "Feldmann1968",
+        "author": "Feldmann, Clarence G.",
+        "year": 1968,
         "title": [
-            "Measured measurement"
+            "Subsets and modular features of standard APT"
         ],
         "booktitle": null,
         "journal": null,
-        "volume": "5",
+        "volume": null,
         "pages": null,
-        "publisher": "Springer Science and Business Media LLC"
+        "publisher": "ACM Press"
     },
     {
-        "entryType": "book",
-        "key": "CPROG",
-        "author": "Kernighan, Brian",
-        "year": "1988",
-        "title": "The C Programming Language, 2nd edition",
+        "entryType": "monograph",
+        "key": "Kuhn2012",
+        "author": "Kuhn, Thomas S. and Hacking, Ian",
+        "year": 2012,
+        "title": [
+            "The Structure of Scientific Revolutions"
+        ],
         "booktitle": null,
         "journal": null,
         "volume": null,
         "pages": null,
-        "publisher": "Pearson"
+        "publisher": "University of Chicago Press"
     },
     {
-        "entryType": "Inproceedings",
-        "key": "avain",
-        "author": "Jon",
-        "year": "2025",
-        "title": "otsikko",
-        "booktitle": "kirjaotsikko",
+        "entryType": "journal-article",
+        "key": "TURING1950",
+        "author": "TURING, A. M.",
+        "year": 1950,
+        "title": [
+            "I.\u2014COMPUTING MACHINERY AND INTELLIGENCE"
+        ],
+        "booktitle": null,
         "journal": null,
-        "volume": null,
+        "volume": "LIX",
         "pages": null,
-        "publisher": null
+        "publisher": "Oxford University Press (OUP)"
     },
     {
-        "entryType": "Inproceedings",
-        "key": "avain",
-        "author": "Jon",
-        "year": "2025",
-        "title": "otsikko",
-        "booktitle": "kirjaotsikko",
+        "entryType": "journal-article",
+        "key": "WATSON1953",
+        "author": "WATSON, J. D. and CRICK, F. H. C.",
+        "year": 1953,
+        "title": [
+            "Molecular Structure of Nucleic Acids: A Structure for Deoxyribose Nucleic Acid"
+        ],
+        "booktitle": null,
         "journal": null,
-        "volume": null,
+        "volume": "171",
         "pages": null,
-        "publisher": null
+        "publisher": "Springer Science and Business Media LLC"
     }
 ]
