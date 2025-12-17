@@ -49,3 +49,9 @@ Sovellus toimii komentorivikäyttöliittymässä.
 - Testikattavuus on kohtuullisella tasolla.
 - Automatisoidut testit.
 - Koodi on selkeää ja hyvin kommentoitua.
+
+---------------------------------------
+
+# Raportti
+https://docs.google.com/document/d/1w1rpHdt5EpWcX8nfXDhhCVPwJ2st1gTR5jzENkY55Fo/edit?usp=sharing
+
