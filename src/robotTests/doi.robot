@@ -8,6 +8,8 @@ ${TEST_DOI}  10.1038/nature12345
 
 *** Test Cases ***
 Käyttäjänä voin hakea datan DOI-tunnisteen perusteella
+    [Documentation]  Tämä on hyväksymiskriteeri Sprint:in 3 Stroylle "Käyttäjänä voin hakea datan DOI-tunnisteen perusteella"
+
     Create Session  doi_session  ${DOI_API_URL}  verify=${True}
 
     ${headers}=  Create Dictionary  Accept=application/x-bibtex

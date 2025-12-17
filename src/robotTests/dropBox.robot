@@ -14,7 +14,8 @@ ${LOCAL_DOWNLOAD_PATH}  ${OUTPUT_DIR}${/}downloaded_robot.json
 
 *** Test Cases ***
 Käyttäjänä voin synkronoida data eri koneiden välillä CLI-sovelluksessa
-    [Documentation]    Tests downloading a file from Dropbox using OAuth2 token refresh flow
+    [Documentation]  Tämä on hyväksymiskriteeri Sprint:in 3 Stroylle "Käyttäjänä voin synkronoida data eri koneiden välillä CLI-sovelluksessa"
+
    ${access_token}=    Get Fresh Access Token
 
     Download Dropbox File    ${access_token}    ${DROPBOX_FILE_PATH}    ${LOCAL_DOWNLOAD_PATH}
@@ -23,7 +24,6 @@ Käyttäjänä voin synkronoida data eri koneiden välillä CLI-sovelluksessa
 
 *** Keywords ***
 Get Fresh Access Token
-    [Documentation]    Exchanges the Refresh Token for a short-lived Access Token
     ${data}=    Create Dictionary
     ...    grant_type=refresh_token
     ...    refresh_token=${DROPBOX_REFRESH_TOKEN}
@@ -34,30 +34,29 @@ Get Fresh Access Token
     ${response}=    POST    https://api.dropbox.com/oauth2/token    data=${data}
     Should Be Equal As Strings    ${response.status_code}    200
 
-    # Extract the new access token
+    # Ottaa uuden tokenin
     ${token}=    Set Variable    ${response.json()}[access_token]
     RETURN    ${token}
 
 Download Dropbox File
     [Arguments]    ${token}    ${remote_path}    ${local_path}
-    [Documentation]    Downloads file using the Dropbox API "content" endpoint
 
-    # Headers required by Dropbox API
+    # Headers, jotka Dropbox API tarvii
     ${headers}=    Create Dictionary
     ...    Authorization=Bearer ${token}
     ...    Dropbox-API-Arg={"path": "${remote_path}"}
 
-    # The download endpoint is a POST request
+    # Latauksen loppupiste on POST kutsu
     ${response}=    POST    https://content.dropboxapi.com/2/files/download    headers=${headers}
     ...    headers=${headers}
     ...    expected_status=any
 
-    # 4. If it failed, Log the real error message from Dropbox!
+    # 4. Jos epäonnistuu, Logataan errorkoodi Dropboxista
     Run Keyword If    ${response.status_code} != 200    Fail    Dropbox Error: ${response.json()}
-    # Save the binary content to a file
+    # Tallennetaan ladattu data paikallisesti
     Create Binary File    ${local_path}    ${response.content}
 
-    # Verify the file is not empty and contains expected data
+    # Tarkistetaan, että data on oikeaa.
     ${content}=      Get File    ${LOCAL_DOWNLOAD_PATH}
     Should Contain    ${content}    {
     Should Contain    ${content}    "entryType": "Inproceedings",
